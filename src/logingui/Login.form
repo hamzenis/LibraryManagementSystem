@@ -56,17 +56,25 @@
           </component>
           <component id="181c7" class="javax.swing.JButton" binding="closeButton" default-binding="true">
             <constraints>
-              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="30" height="40"/>
+              </grid>
             </constraints>
             <properties>
+              <font name="Monaco" style="1"/>
+              <icon value="src/logingui/red-x-mark-transparent-background-3.png"/>
               <text value="Close"/>
             </properties>
           </component>
           <component id="7bee6" class="javax.swing.JButton" binding="logInButton" default-binding="true">
             <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="30" height="40"/>
+              </grid>
             </constraints>
             <properties>
+              <font name="Monaco" style="1"/>
+              <icon value="src/logingui/login.png"/>
               <text value="Log in"/>
             </properties>
           </component>
