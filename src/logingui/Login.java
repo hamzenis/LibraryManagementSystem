@@ -18,6 +18,7 @@ public class Login extends JFrame {
     private JLabel passwortJLabel;
     private JLabel usernameJLabel;
     private JPanel innererJPanel;
+    Initialize in = new Initialize();
 
 
     public Login()  {
@@ -40,9 +41,7 @@ public class Login extends JFrame {
                     setVisible(false);
                 } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
                     setVisible(false);
-                    Initialize in = new Initialize();
                     in.startUserGUI();
-
                 } else JOptionPane.showMessageDialog(null, "Incorrect paswword");
 
             }

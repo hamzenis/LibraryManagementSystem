@@ -9,13 +9,14 @@ import java.awt.event.ActionListener;
 public class IssuedBooks extends JFrame{
     private JPanel panel3;
     private JButton backButton;
+    Initialize in = new Initialize();
+
 
     public IssuedBooks() {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                Initialize in = new Initialize();
                 in.startUserGUI();
             }
         });
