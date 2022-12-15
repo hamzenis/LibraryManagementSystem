@@ -3,6 +3,7 @@ package src.logingui;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import src.LibrarianGUI.*;
 
 public class Login extends JFrame {
 
@@ -33,8 +34,13 @@ public class Login extends JFrame {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin")) {
+                if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
+                {
                     setVisible(false);
+                    StartGUILibrarian newLiberian = new StartGUILibrarian();
+                    newLiberian.setContentPane(newLiberian.getLibrarians());
+                    newLiberian.setVisible(true);
+                    newLiberian.setExtendedState(MAXIMIZED_BOTH);
                 } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
 //                    setVisible(false);
 //                    UserGUI u = new UserGUI();
