@@ -44,6 +44,7 @@ public class Login extends JFrame {
                     u.setExtendedState(MAXIMIZED_BOTH);
 
                 } else JOptionPane.showMessageDialog(null, "Incorrect paswword");
+
             }
         });
 
