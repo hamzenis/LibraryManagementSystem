@@ -20,10 +20,25 @@ public class StartGUILibrarian extends JFrame{
         addBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // setVisible(false);
+               setVisible(false);
+               AddBookGUI newAddBook = new AddBookGUI();
+               newAddBook.setContentPane(newAddBook.getPanel1());
+               newAddBook.setVisible(true);
+               newAddBook.setExtendedState(MAXIMIZED_BOTH);
+
             }
         });
-    }
+       addUserButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               setVisible(false);
+               AddUserGUI newAddUser = new AddUserGUI();
+               newAddUser.setContentPane(newAddUser.getJPanelU());
+               newAddUser.setVisible(true);
+               newAddUser.setExtendedState(MAXIMIZED_BOTH);
+           }
+       });
+   }
 
  /*   private void createUIComponents() {
         // TODO: place custom component creation code here

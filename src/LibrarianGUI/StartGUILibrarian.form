@@ -43,13 +43,14 @@
       <component id="9722c" class="javax.swing.JButton" binding="addBookButton" default-binding="true">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="30"/>
+            <preferred-size width="30" height="40"/>
           </grid>
         </constraints>
         <properties>
           <hideActionText value="false"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="11"/>
+          <icon value="src/LibrarianGUI/newBook.png"/>
           <text value="Add Book"/>
           <verticalAlignment value="0"/>
           <verticalTextPosition value="0"/>
@@ -57,9 +58,12 @@
       </component>
       <component id="2d01f" class="javax.swing.JButton" binding="addUserButton" default-binding="true">
         <constraints>
-          <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="30" height="40"/>
+          </grid>
         </constraints>
         <properties>
+          <icon value="src/LibrarianGUI/AddUser.png"/>
           <text value="Add User"/>
         </properties>
       </component>
