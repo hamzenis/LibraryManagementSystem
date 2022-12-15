@@ -33,10 +33,15 @@ public class Login extends JFrame {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
-                {
+                if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin")) {
                     setVisible(false);
-                }
+                } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
+//                    setVisible(false);
+//                    UserGUI u = new UserGUI();
+//                    u.setContentPane(u.getPanel1());
+//                    u.setVisible(true);
+//                    u.setExtendedState(MAXIMIZED_BOTH);
+                } else JOptionPane.showMessageDialog(null, "Incorrect paswword");
             }
         });
 
