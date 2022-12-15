@@ -41,7 +41,7 @@ public class Login extends JFrame {
 //                    u.setContentPane(u.getPanel1());
 //                    u.setVisible(true);
 //                    u.setExtendedState(MAXIMIZED_BOTH);
-                } else JOptionPane.showMessageDialog(null, "Incorrect paswword");
+                } else JOptionPane.showMessageDialog(null, "Incorrect Password");
             }
         });
 

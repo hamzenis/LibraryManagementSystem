@@ -13,5 +13,10 @@ public class Initialize {
         loginUIObj.setVisible(true);
     }
 
+    public void startUserGUI(){
+
+    }
+
+
 
 }
