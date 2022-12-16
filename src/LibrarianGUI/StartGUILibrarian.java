@@ -1,5 +1,7 @@
 package src.LibrarianGUI;
 
+import src.logingui.Login;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,8 +17,9 @@ public class StartGUILibrarian extends JFrame{
     private JButton addUserButton;
     private JButton viewReturnedBooksButton;
     private JButton entriesButton;
+    private JButton button1;
 
-   public StartGUILibrarian() {
+    public StartGUILibrarian() {
         addBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -107,7 +110,17 @@ public class StartGUILibrarian extends JFrame{
        });
 
 
-   }
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Login gl = new Login();
+                gl.setVisible(true);
+                gl.setContentPane(gl.getLoginWindowPanel());
+                gl.setSize(250,200);
+            }
+        });
+    }
 
  /*   private void createUIComponents() {
         // TODO: place custom component creation code here

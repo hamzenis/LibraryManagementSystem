@@ -26,24 +26,30 @@
       </vspacer>
       <component id="e0ec8" class="javax.swing.JButton" binding="viewIssuedBooksButton" default-binding="true">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="70" height="40"/>
+          </grid>
         </constraints>
         <properties>
-          <text value=" view Issued books"/>
+          <icon value="src/LibrarianGUI/IssuedBooks.png"/>
+          <text value=" View Issued books"/>
         </properties>
       </component>
       <component id="131d2" class="javax.swing.JButton" binding="viewBookButton" default-binding="true">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="70" height="40"/>
+          </grid>
         </constraints>
         <properties>
+          <icon value="src/LibrarianGUI/ViewBook.png"/>
           <text value="View Book"/>
         </properties>
       </component>
       <component id="9722c" class="javax.swing.JButton" binding="addBookButton" default-binding="true">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="30" height="40"/>
+            <preferred-size width="70" height="40"/>
           </grid>
         </constraints>
         <properties>
@@ -59,7 +65,7 @@
       <component id="2d01f" class="javax.swing.JButton" binding="addUserButton" default-binding="true">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="30" height="40"/>
+            <preferred-size width="70" height="40"/>
           </grid>
         </constraints>
         <properties>
@@ -69,34 +75,59 @@
       </component>
       <component id="63cda" class="javax.swing.JButton" binding="viewUserButton" default-binding="true">
         <constraints>
-          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="70" height="40"/>
+          </grid>
         </constraints>
         <properties>
+          <icon value="src/LibrarianGUI/ViewUser.png"/>
           <text value="View User"/>
         </properties>
       </component>
       <component id="b50a1" class="javax.swing.JButton" binding="viewReturnedBooksButton" default-binding="true">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="70" height="40"/>
+          </grid>
         </constraints>
         <properties>
+          <icon value="src/LibrarianGUI/ReturnedBooks.png"/>
           <text value="view returned books"/>
         </properties>
       </component>
       <component id="3a2c2" class="javax.swing.JButton" binding="entriesButton" default-binding="true">
         <constraints>
-          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="70" height="40"/>
+          </grid>
         </constraints>
         <properties>
+          <icon value="src/LibrarianGUI/Entries.png"/>
           <text value="entries"/>
         </properties>
       </component>
       <component id="f72e6" class="javax.swing.JButton" binding="issueBooks_UserButton" default-binding="true">
         <constraints>
-          <grid row="6" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="70" height="40"/>
+          </grid>
         </constraints>
         <properties>
+          <icon value="src/LibrarianGUI/IssueBookForUser.png"/>
           <text value="Issue books_User"/>
+        </properties>
+      </component>
+      <component id="5a06c" class="javax.swing.JButton" binding="button1" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="30" height="40"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Monaco" style="1"/>
+          <horizontalAlignment value="0"/>
+          <icon value="src/LibrarianGUI/exit.png"/>
+          <text value="Log Out"/>
         </properties>
       </component>
     </children>
