@@ -38,6 +38,75 @@ public class StartGUILibrarian extends JFrame{
                newAddUser.setExtendedState(MAXIMIZED_BOTH);
            }
        });
+
+       viewBookButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               setVisible(false);
+               ViewBookGUI newVieBook = new ViewBookGUI();
+               newVieBook.setContentPane(newVieBook.getPanel2());
+               newVieBook.setVisible(true);
+               newVieBook.setExtendedState(MAXIMIZED_BOTH);
+           }
+       });
+
+       viewUserButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               setVisible(false);
+               ViewUserGUI newViewBook = new ViewUserGUI();
+               newViewBook.setContentPane(newViewBook.getPanel3());
+               newViewBook.setVisible(true);
+               newViewBook.setExtendedState(MAXIMIZED_BOTH);
+
+           }
+       });
+
+       viewIssuedBooksButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               setVisible(false);
+               ViewUssuedBookGUI newUssedBook = new ViewUssuedBookGUI();
+               newUssedBook.setContentPane(newUssedBook.getPanel4());
+               newUssedBook.setVisible(true);
+               newUssedBook.setExtendedState(MAXIMIZED_BOTH);
+           }
+       });
+
+       issueBooks_UserButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               setVisible(false);
+               IssuebookUsersGUI newIssueBUser = new IssuebookUsersGUI();
+               newIssueBUser.setContentPane(newIssueBUser.getPanel5());
+               newIssueBUser.setVisible(true);
+               newIssueBUser.setExtendedState(MAXIMIZED_BOTH);
+           }
+       });
+
+       viewReturnedBooksButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               setVisible(false);
+               ViewReturnedBookGUI newViewBRetuned = new ViewReturnedBookGUI();
+               newViewBRetuned.setContentPane(newViewBRetuned.getPanel6());
+               newViewBRetuned.setVisible(true);
+               newViewBRetuned.setExtendedState(MAXIMIZED_BOTH);
+           }
+       });
+
+       entriesButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               setVisible(false);
+               EntriesGUI newEntries = new EntriesGUI();
+               newEntries.setContentPane(newEntries.getPanel7());
+               newEntries.setVisible(true);
+               newEntries.setExtendedState(MAXIMIZED_BOTH);
+           }
+       });
+
+
    }
 
  /*   private void createUIComponents() {
