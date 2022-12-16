@@ -1,5 +1,7 @@
 package src.userGUI;
 
+import src.main.Initialize;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,16 +9,15 @@ import java.awt.event.ActionListener;
 public class IssuedBooks extends JFrame{
     private JPanel panel3;
     private JButton backButton;
+    Initialize in = new Initialize();
+
 
     public IssuedBooks() {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                UserGUI ug = new UserGUI();
-                ug.setContentPane(ug.getPanel1());
-                ug.setVisible(true);
-                ug.setExtendedState(MAXIMIZED_BOTH);
+                in.startUserGUI();
             }
         });
     }

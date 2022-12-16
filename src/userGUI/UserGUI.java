@@ -1,6 +1,7 @@
 package src.userGUI;
 
 import src.logingui.Login;
+import src.main.Initialize;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,36 +12,29 @@ public class UserGUI extends JFrame{
     private JButton availableBooksButton;
     private JButton issuedBooksButton;
     private JButton logOutButton;
+    Initialize in = new Initialize();
+
 
     public UserGUI() {
         issuedBooksButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                IssuedBooks ib = new IssuedBooks();
-                ib.setContentPane(ib.getPanel3());
-                ib.setVisible(true);
-                ib.setExtendedState(MAXIMIZED_BOTH);
+                in.startIssuedBookGUI();
             }
         });
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                Login newLogin = new Login();
-                newLogin.setContentPane(newLogin.getLoginWindowPanel());
-                newLogin.setVisible(true);
-                newLogin.setSize(250,200);
+                in.startLoginUI();
             }
         });
         availableBooksButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                AvailableBooks ab = new AvailableBooks();
-                ab.setContentPane(ab.getPanel4());
-                ab.setVisible(true);
-                ab.setExtendedState(MAXIMIZED_BOTH);
+                in.startAvailableBooksGUI();
             }
         });
     }

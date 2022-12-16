@@ -3,6 +3,8 @@ package src.logingui;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import src.main.Initialize;
 import src.userGUI.*;
 
 public class Login extends JFrame {
@@ -16,6 +18,7 @@ public class Login extends JFrame {
     private JLabel passwortJLabel;
     private JLabel usernameJLabel;
     private JPanel innererJPanel;
+    Initialize in = new Initialize();
 
 
     public Login()  {
@@ -38,11 +41,7 @@ public class Login extends JFrame {
                     setVisible(false);
                 } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
                     setVisible(false);
-                    UserGUI u = new UserGUI();
-                    u.setContentPane(u.getPanel1());
-                    u.setVisible(true);
-                    u.setExtendedState(MAXIMIZED_BOTH);
-
+                    in.startUserGUI();
                 } else JOptionPane.showMessageDialog(null, "Incorrect paswword");
 
             }
