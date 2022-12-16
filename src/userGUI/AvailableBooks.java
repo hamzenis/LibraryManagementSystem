@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 public class AvailableBooks extends JFrame {
     private JPanel panel4;
     private JButton AvailableBooksbackButton;
+    private JButton searchButton;
+    private JTextField textField1;
     Initialize in = new Initialize();
 
 
