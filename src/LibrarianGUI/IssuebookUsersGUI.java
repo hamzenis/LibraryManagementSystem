@@ -11,6 +11,7 @@ public class IssuebookUsersGUI extends JFrame{
     private JTextField textField4;
     private JPanel Panel5;
     private JButton backButton;
+    private JButton saveButton;
 
     public IssuebookUsersGUI() {
         backButton.addActionListener(new ActionListener() {
