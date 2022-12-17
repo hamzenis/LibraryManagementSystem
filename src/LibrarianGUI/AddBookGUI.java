@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddBookGUI extends JFrame{
-    private JPanel panel1;
+    private JPanel AddBookPanel;
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
@@ -27,8 +27,8 @@ public class AddBookGUI extends JFrame{
         });
     }
 
-    public JPanel getPanel1(){
+    public JPanel getAddBookPanel(){
 
-        return panel1;
+        return AddBookPanel;
     }
 }
