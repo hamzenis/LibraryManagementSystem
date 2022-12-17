@@ -7,7 +7,7 @@ import src.userGUI.UserGUI;
 
 import static java.awt.Frame.MAXIMIZED_BOTH;
 
-public class Initialize {
+public class Initial {
 
     //  Start of Program
     public void startLoginUI(){

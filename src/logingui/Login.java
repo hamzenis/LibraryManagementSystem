@@ -5,8 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import src.LibrarianGUI.*;
 
-import src.main.Initialize;
-import src.userGUI.*;
+import src.main.Initial;
 
 public class Login extends JFrame {
 
@@ -19,7 +18,7 @@ public class Login extends JFrame {
     private JLabel passwortJLabel;
     private JLabel usernameJLabel;
     private JPanel innererJPanel;
-    Initialize in = new Initialize();
+    Initial in = new Initial();
 
 
     public Login()  {

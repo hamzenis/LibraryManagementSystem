@@ -1,6 +1,6 @@
 package src.userGUI;
 
-import src.main.Initialize;
+import src.main.Initial;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +11,7 @@ public class AvailableBooks extends JFrame {
     private JButton AvailableBooksbackButton;
     private JButton searchButton;
     private JTextField textField1;
-    Initialize in = new Initialize();
+    Initial in = new Initial();
 
 
     public AvailableBooks() {
