@@ -56,7 +56,7 @@
         </constraints>
         <properties>
           <font name="Monaco" style="1"/>
-          <icon value="src/LibrarianGUI/Back.png"/>
+          <icon value="src/LibrarianGUI/BackIcon.png"/>
           <text value="Back"/>
         </properties>
       </component>
