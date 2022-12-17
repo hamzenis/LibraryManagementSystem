@@ -19,7 +19,6 @@ public class StartGUILibrarian extends JFrame {
     private JButton LogOutButton;
     private JButton issuedBooksButton;
     private JButton returnedBooksButton;
-    private JButton saveButton;
 
     public StartGUILibrarian() {
 
