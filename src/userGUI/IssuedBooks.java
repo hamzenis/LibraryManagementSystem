@@ -1,16 +1,15 @@
 package src.userGUI;
 
-import src.main.Initialize;
+import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class IssuedBooks extends JFrame{
     private JPanel panel3;
     private JButton backButton;
-    Initialize in = new Initialize();
+    Initial in = new Initial();
 
 
     public IssuedBooks() {

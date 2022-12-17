@@ -24,6 +24,7 @@
             </constraints>
             <properties>
               <font name="Monaco" style="1"/>
+              <icon value="src/userGUI/Back.png"/>
               <text value="Back"/>
             </properties>
           </component>

@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Hello World");
 
         //  Program start Code
-        Initialize startProject = new Initialize();
+        Initial startProject = new Initial();
         startProject.startLoginUI();
 
     }

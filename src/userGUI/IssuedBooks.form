@@ -23,8 +23,9 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-2718976"/>
+              <background color="-66049"/>
               <font name="Monaco" style="1"/>
+              <icon value="src/userGUI/Back.png"/>
               <text value="Back"/>
             </properties>
           </component>

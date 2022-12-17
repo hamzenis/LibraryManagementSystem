@@ -1,7 +1,6 @@
 package src.userGUI;
 
-import src.logingui.Login;
-import src.main.Initialize;
+import src.main.Initial;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +11,7 @@ public class UserGUI extends JFrame{
     private JButton availableBooksButton;
     private JButton issuedBooksButton;
     private JButton logOutButton;
-    Initialize in = new Initialize();
+    Initial in = new Initial();
 
 
     public UserGUI() {

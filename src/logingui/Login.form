@@ -62,7 +62,7 @@
             </constraints>
             <properties>
               <font name="Monaco" style="1"/>
-              <icon value="src/logingui/red-x-mark-transparent-background-3.png"/>
+              <icon value="src/logingui/CloseIcon.png"/>
               <text value="Close"/>
             </properties>
           </component>
