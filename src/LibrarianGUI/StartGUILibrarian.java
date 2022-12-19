@@ -73,7 +73,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                in.startIssuedBookGUI();
+                in.startViewIssuedBook();
             }
         });
         returnedBooksButton.addActionListener(new ActionListener() {

@@ -21,7 +21,7 @@ public class ViewIssuedBookGUI extends JFrame{
         });
     }
 
-    public JPanel getIssuedBooksPanel(){
+    public JPanel getWindowPanel(){
         return windowPanel;
     }
 }
