@@ -1,27 +1,27 @@
 package src.LibrarianGUI;
 
+import src.main.Initial;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class EntriesGUI extends JFrame{
-    private JPanel Panel7;
+    private JPanel windowPanel;
     private JButton backButton;
+    Initial in = new Initial();
 
     public EntriesGUI() {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                StartGUILibrarian newGuiLibrerian = new StartGUILibrarian();
-                newGuiLibrerian.setVisible(true);
-                newGuiLibrerian.setContentPane(newGuiLibrerian.getLibrarians());
-                newGuiLibrerian.setExtendedState(MAXIMIZED_BOTH);
+                in.startLibrarianGUI();
             }
         });
     }
 
-    public JPanel getPanel7(){
-        return  Panel7;
+    public JPanel getWindowPanel(){
+        return windowPanel;
     }
 }

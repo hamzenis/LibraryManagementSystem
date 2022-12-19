@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="src.LibrarianGUI.AddBookGUI">
-  <grid id="27dc6" binding="AddBookPanel" layout-manager="GridLayoutManager" row-count="10" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="windowPanel" layout-manager="GridLayoutManager" row-count="10" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="571" height="413"/>
@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="ba15d" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="ba15d" class="javax.swing.JTextField" binding="inputBookID">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -24,7 +24,7 @@
           <text value="Enter Book Name"/>
         </properties>
       </component>
-      <component id="fccba" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="fccba" class="javax.swing.JTextField" binding="inputBookName">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -40,7 +40,7 @@
           <text value="Date"/>
         </properties>
       </component>
-      <component id="fe6e0" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="fe6e0" class="javax.swing.JTextField" binding="inputDate">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -56,7 +56,7 @@
           <text value="Genre"/>
         </properties>
       </component>
-      <component id="d96ca" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="d96ca" class="javax.swing.JTextField" binding="inputGenre">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -72,7 +72,7 @@
           <text value="Quantity"/>
         </properties>
       </component>
-      <component id="bb21" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="bb21" class="javax.swing.JTextField" binding="inputQuantity">
         <constraints>
           <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

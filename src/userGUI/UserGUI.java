@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UserGUI extends JFrame{
-    private JPanel panel1;
+    private JPanel windowPanel;
     private JButton availableBooksButton;
     private JButton issuedBooksButton;
     private JButton logOutButton;
@@ -38,8 +38,8 @@ public class UserGUI extends JFrame{
         });
     }
 
-    public JPanel getPanel1 (){
-        return panel1;
+    public JPanel getWindowPanel(){
+        return windowPanel;
     }
 
 }

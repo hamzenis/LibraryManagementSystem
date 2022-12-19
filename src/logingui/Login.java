@@ -3,7 +3,6 @@ package src.logingui;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import src.LibrarianGUI.*;
 
 import src.main.Initial;
 
@@ -17,7 +16,6 @@ public class Login extends JFrame {
     private JPanel windowPanel;
     private JLabel passwortJLabel;
     private JLabel usernameJLabel;
-    private JPanel innererJPanel;
     Initial in = new Initial();
 
 
@@ -40,14 +38,11 @@ public class Login extends JFrame {
                 if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
                 {
                     setVisible(false);
-                    StartGUILibrarian newLiberian = new StartGUILibrarian();
-                    newLiberian.setContentPane(newLiberian.getLibrarians());
-                    newLiberian.setVisible(true);
-                    newLiberian.setExtendedState(MAXIMIZED_BOTH);
+                    in.startLibrarianGUI();
                 } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
                     setVisible(false);
                     in.startUserGUI();
-                } else JOptionPane.showMessageDialog(null, "Incorrect paswword");
+                } else JOptionPane.showMessageDialog(null, "Incorrect Password");
 
             }
         });

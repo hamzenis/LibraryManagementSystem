@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class IssuedBooks extends JFrame{
-    private JPanel panel3;
+    private JPanel windowPanel;
     private JButton backButton;
     Initial in = new Initial();
 
@@ -22,8 +22,8 @@ public class IssuedBooks extends JFrame{
         });
     }
 
-    public JPanel getPanel3(){
-        return panel3;
+    public JPanel getWindowPanel(){
+        return windowPanel;
     }
 
 

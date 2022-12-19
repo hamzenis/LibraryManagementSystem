@@ -6,17 +6,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class IssuebookUsersGUI extends JFrame{
-    private JTextField inputIssueID;
-    private JTextField inputDate;
-    private JTextField inputBookID;
-    private JTextField inputUserID;
+public class ViewIssuedBookGUI extends JFrame{
     private JPanel windowPanel;
     private JButton backButton;
-    private JButton saveButton;
     Initial in = new Initial();
 
-    public IssuebookUsersGUI() {
+    public ViewIssuedBookGUI() {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -26,7 +21,7 @@ public class IssuebookUsersGUI extends JFrame{
         });
     }
 
-    public JPanel getWindowPanel(){
+    public JPanel getIssuedBooksPanel(){
         return windowPanel;
     }
 }
