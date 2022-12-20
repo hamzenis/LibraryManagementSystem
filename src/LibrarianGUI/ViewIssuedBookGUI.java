@@ -4,12 +4,12 @@ import src.main.Initial;
 
 import javax.swing.*;
 
-public class EntriesGUI extends JFrame{
+public class ViewIssuedBookGUI extends JFrame{
     private JPanel windowPanel;
     private JButton backButton;
     Initial in = new Initial();
 
-    public EntriesGUI() {
+    public ViewIssuedBookGUI() {
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();

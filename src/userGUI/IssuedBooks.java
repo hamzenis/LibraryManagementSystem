@@ -3,27 +3,23 @@ package src.userGUI;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class IssuedBooks extends JFrame{
-    private JPanel panel3;
+    private JPanel windowPanel;
     private JButton backButton;
     Initial in = new Initial();
 
 
     public IssuedBooks() {
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                in.startUserGUI();
-            }
+        backButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startUserGUI();
         });
     }
 
-    public JPanel getPanel3(){
-        return panel3;
+    public JPanel getWindowPanel(){
+        return windowPanel;
     }
 
 

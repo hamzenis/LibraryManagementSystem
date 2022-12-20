@@ -1,32 +1,28 @@
 package src.LibrarianGUI;
 
+import src.main.Initial;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AddUserGUI extends JFrame{
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JComboBox comboBox1;
-    private JPanel AddUserPanel;
+    private JTextField inputUserID;
+    private JTextField inputUsername;
+    private JTextField inputLastname;
+    private JComboBox inputTypeUser;
+    private JPanel windowPanel;
     private JButton backButton;
     private JButton saveButton;
+    Initial in = new Initial();
 
     public AddUserGUI() {
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                StartGUILibrarian sg = new StartGUILibrarian();
-                sg.setVisible(true);
-                sg.setContentPane(sg.getLibrarians());
-                sg.setExtendedState(MAXIMIZED_BOTH);
-            }
+        backButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startLibrarianGUI();
         });
     }
 
-    public JPanel getAddUserPanel() {
-        return AddUserPanel;
+    public JPanel getWindowPanel() {
+        return windowPanel;
     }
 }

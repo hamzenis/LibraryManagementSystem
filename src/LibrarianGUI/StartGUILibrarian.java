@@ -1,16 +1,12 @@
 package src.LibrarianGUI;
 
-import src.logingui.Login;
-import src.userGUI.IssuedBooks;
+import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class StartGUILibrarian extends JFrame {
-    private JPanel librarians;
-    private JButton issueBooks_UserButton;
+    private JPanel windowPanel;
+    private JButton issueBookTOUserButton;
     private JButton addBookButton;
     private JButton viewUserButton;
     private JButton viewBookButton;
@@ -19,109 +15,66 @@ public class StartGUILibrarian extends JFrame {
     private JButton LogOutButton;
     private JButton issuedBooksButton;
     private JButton returnedBooksButton;
+    Initial in = new Initial();
 
     public StartGUILibrarian() {
 
-        addUserButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                AddUserGUI newAddUser = new AddUserGUI();
-                newAddUser.setContentPane(newAddUser.getAddUserPanel());
-                newAddUser.setVisible(true);
-                newAddUser.setExtendedState(MAXIMIZED_BOTH);
-            }
+        addUserButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startAddUserGUI();
         });
 
-        issueBooks_UserButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                IssuebookUsersGUI newIssueBUser = new IssuebookUsersGUI();
-                newIssueBUser.setContentPane(newIssueBUser.getPanel5());
-                newIssueBUser.setVisible(true);
-                newIssueBUser.setExtendedState(MAXIMIZED_BOTH);
-            }
+        issueBookTOUserButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startIssueBookUsersGUI();
         });
 
-
-        entriesButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                EntriesGUI newEntries = new EntriesGUI();
-                newEntries.setContentPane(newEntries.getPanel7());
-                newEntries.setVisible(true);
-                newEntries.setExtendedState(MAXIMIZED_BOTH);
-            }
+        entriesButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startEntriesGUI();
         });
 
-        LogOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                Login newLogIn = new Login();
-                newLogIn.setVisible(true);
-                newLogIn.setContentPane(newLogIn.getLoginWindowPanel());
-                newLogIn.setSize(250,200);
-            }
+        LogOutButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startLoginUI();
         });
-        addBookButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                AddBookGUI newBook = new AddBookGUI();
-                newBook.setVisible(true);
-                newBook.setContentPane(newBook.getAddBookPanel());
-                newBook.setExtendedState(MAXIMIZED_BOTH);
-            }
+
+        addBookButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startAddBookGUI();
         });
-        viewBookButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                ViewBookGUI vb = new ViewBookGUI();
-                vb.setVisible(true);
-                vb.setContentPane(vb.getViewBookPanel());
-                vb.setExtendedState(MAXIMIZED_BOTH);
-            }
+
+        viewBookButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startViewBookGUI();
         });
-        issuedBooksButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                ViewUssuedBookGUI ib = new ViewUssuedBookGUI();
-                ib.setVisible(true);
-                ib.setContentPane(ib.getIssuedBooksPanel());
-                ib.setExtendedState(MAXIMIZED_BOTH);
-            }
+
+        issuedBooksButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startViewIssuedBook();
         });
-        returnedBooksButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                ViewReturnedBookGUI rb = new ViewReturnedBookGUI();
-                rb.setVisible(true);
-                rb.setContentPane(rb.getReturnedBooks());
-                rb.setExtendedState(MAXIMIZED_BOTH);
-            }
+
+        returnedBooksButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startViewReturnedBook();
         });
-        viewUserButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                ViewUserGUI vu = new ViewUserGUI();
-                vu.setVisible(true);
-                vu.setContentPane(vu.getViewUserPanel());
-                vu.setExtendedState(MAXIMIZED_BOTH);
-            }
+
+        viewUserButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startViewUserGUI();
         });
     }
- /*   private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
-*/
-        public JPanel getLibrarians() {
-            return librarians;
+
+        public JPanel getWindowPanel() {
+            return windowPanel;
         }
 }

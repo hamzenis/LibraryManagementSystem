@@ -3,11 +3,9 @@ package src.userGUI;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class UserGUI extends JFrame{
-    private JPanel panel1;
+    private JPanel windowPanel;
     private JButton availableBooksButton;
     private JButton issuedBooksButton;
     private JButton logOutButton;
@@ -15,31 +13,27 @@ public class UserGUI extends JFrame{
 
 
     public UserGUI() {
-        issuedBooksButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                in.startIssuedBookGUI();
-            }
+        issuedBooksButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startIssuedBookGUI();
         });
-        logOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                in.startLoginUI();
-            }
+
+        logOutButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startLoginUI();
         });
-        availableBooksButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                in.startAvailableBooksGUI();
-            }
+
+        availableBooksButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startAvailableBooksGUI();
         });
     }
 
-    public JPanel getPanel1 (){
-        return panel1;
+    public JPanel getWindowPanel(){
+        return windowPanel;
     }
 
 }

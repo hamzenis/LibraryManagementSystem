@@ -1,32 +1,28 @@
 package src.LibrarianGUI;
 
+import src.main.Initial;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class IssuebookUsersGUI extends JFrame{
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JPanel Panel5;
+    private JTextField inputIssueID;
+    private JTextField inputDate;
+    private JTextField inputBookID;
+    private JTextField inputUserID;
+    private JPanel windowPanel;
     private JButton backButton;
     private JButton saveButton;
+    Initial in = new Initial();
 
     public IssuebookUsersGUI() {
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                StartGUILibrarian nl = new StartGUILibrarian();
-                nl.setVisible(true);
-                nl.setContentPane(nl.getLibrarians());
-                nl.setExtendedState(MAXIMIZED_BOTH);
-            }
+        backButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startLibrarianGUI();
         });
     }
 
-    public JPanel getPanel5(){
-        return Panel5;
+    public JPanel getWindowPanel(){
+        return windowPanel;
     }
 }

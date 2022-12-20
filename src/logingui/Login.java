@@ -1,9 +1,6 @@
 package src.logingui;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import src.LibrarianGUI.*;
 
 import src.main.Initial;
 
@@ -17,39 +14,40 @@ public class Login extends JFrame {
     private JPanel windowPanel;
     private JLabel passwortJLabel;
     private JLabel usernameJLabel;
-    private JPanel innererJPanel;
     Initial in = new Initial();
 
 
     public Login()  {
 
+        /* Close program with "X" button
+        *  (auch in Initial möglich[siehe startLoginGUI],
+        *  jedoch besser wenn alles erbt von Klasse GUI[siehe Idea Improvements])
+        *
+        */
+        // setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
+
+
+
         /* Login GUI Actions */
 
         //  Close Button Login
-        closeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        closeButton.addActionListener(e -> System.exit(0));
 
         //  Login Button Login
-        logInButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
-                {
-                    setVisible(false);
-                    StartGUILibrarian newLiberian = new StartGUILibrarian();
-                    newLiberian.setContentPane(newLiberian.getLibrarians());
-                    newLiberian.setVisible(true);
-                    newLiberian.setExtendedState(MAXIMIZED_BOTH);
-                } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
-                    setVisible(false);
-                    in.startUserGUI();
-                } else JOptionPane.showMessageDialog(null, "Incorrect paswword");
+        logInButton.addActionListener(e -> {
+            if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
+            {
+                setVisible(false);
+                dispose();
+                in.startLibrarianGUI();
+            } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
+                setVisible(false);
+                dispose();
+                in.startUserGUI();
+            } else JOptionPane.showMessageDialog(null, "Incorrect Password");
 
-            }
         });
 
 

@@ -3,28 +3,24 @@ package src.userGUI;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AvailableBooks extends JFrame {
-    private JPanel panel4;
-    private JButton AvailableBooksbackButton;
+    private JPanel windowPanel;
+    private JButton backbutton;
     private JButton searchButton;
-    private JTextField textField1;
+    private JTextField inputField;
     Initial in = new Initial();
 
 
     public AvailableBooks() {
-        AvailableBooksbackButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                in.startUserGUI();
-            }
+        backbutton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startUserGUI();
         });
     }
 
-    public JPanel getPanel4(){
-        return panel4;
+    public JPanel getWindowPanel(){
+        return windowPanel;
     }
 }
