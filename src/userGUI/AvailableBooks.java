@@ -19,6 +19,7 @@ public class AvailableBooks extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startUserGUI();
             }
         });

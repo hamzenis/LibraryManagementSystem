@@ -21,6 +21,17 @@ public class Login extends JFrame {
 
     public Login()  {
 
+        /* Close program with "X" button
+        *  (auch in Initial möglich[siehe startLoginGUI],
+        *  jedoch besser wenn alles erbt von Klasse GUI[siehe Idea Improvements])
+        *
+        */
+        // setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
+
+
+
         /* Login GUI Actions */
 
         //  Close Button Login
@@ -38,9 +49,11 @@ public class Login extends JFrame {
                 if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
                 {
                     setVisible(false);
+                    dispose();
                     in.startLibrarianGUI();
                 } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
                     setVisible(false);
+                    dispose();
                     in.startUserGUI();
                 } else JOptionPane.showMessageDialog(null, "Incorrect Password");
 

@@ -19,6 +19,7 @@ public class UserGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startIssuedBookGUI();
             }
         });
@@ -26,6 +27,7 @@ public class UserGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startLoginUI();
             }
         });
@@ -33,6 +35,7 @@ public class UserGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startAvailableBooksGUI();
             }
         });

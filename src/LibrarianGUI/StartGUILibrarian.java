@@ -1,6 +1,5 @@
 package src.LibrarianGUI;
 
-import src.logingui.Login;
 import src.main.Initial;
 
 import javax.swing.*;
@@ -26,8 +25,8 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startAddUserGUI();
-
             }
         });
 
@@ -35,6 +34,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startIssueBookUsersGUI();
             }
         });
@@ -44,6 +44,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startEntriesGUI();
             }
         });
@@ -52,6 +53,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startLoginUI();
             }
         });
@@ -59,6 +61,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startAddBookGUI();
             }
         });
@@ -66,6 +69,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startViewBookGUI();
             }
         });
@@ -73,6 +77,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startViewIssuedBook();
             }
         });
@@ -80,6 +85,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startViewReturnedBook();
             }
         });
@@ -87,6 +93,7 @@ public class StartGUILibrarian extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startViewUserGUI();
             }
         });

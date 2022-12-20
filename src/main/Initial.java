@@ -1,38 +1,38 @@
 package src.main;
 
 import src.LibrarianGUI.*;
-import src.logingui.Login;
-import src.userGUI.AvailableBooks;
-import src.userGUI.IssuedBooks;
-import src.userGUI.UserGUI;
-
-import java.awt.*;
+import src.logingui.*;
+import src.userGUI.*;
 
 import static java.awt.Frame.MAXIMIZED_BOTH;
 
 public class Initial {
 
+    /*  Code Comments:
+    *   - setSize(x,y) for perfered size, but pack() for minimum size
+    *      - pack() ausprobiert in then GUIs: userGUI, librarianGUI, addBookGUI [setExtendedState() auskommentieren]
+    *
+    *   - setLocationRelativeTo(null) sets Location of Window to the center of the screen
+    *
+    */
 
-    //  Functions
-    public static void centreWindow(Window frame) {
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-        frame.setLocation(x, y);
-    }
 
-    //  Start of Program
+
+    /*  Functions (noch nicht gemacht) */
+
+
+
+    /*  Start of Program */
     public void startLoginUI(){
         Login lo = new Login();
         lo.setContentPane(lo.getLoginWindowPanel());
-        //centreWindow();
         lo.setTitle("Welcome to LMS");
         lo.setSize(250,200);
         lo.setLocationRelativeTo(null);
         lo.setVisible(true);
     }
 
-    /*  Side User UI*/
+    /*  Side User UI */
 
     public void startUserGUI(){
         UserGUI ug = new UserGUI();
@@ -40,6 +40,8 @@ public class Initial {
         ug.setTitle("Welcome $User to LMS - Library Management System");
         ug.setVisible(true);
         ug.setExtendedState(MAXIMIZED_BOTH);
+        //ug.pack();
+        //ug.setLocationRelativeTo(null);
     }
 
     public void startAvailableBooksGUI(){
@@ -67,6 +69,8 @@ public class Initial {
         li.setTitle("LMS-Admin Panel");
         li.setVisible(true);
         li.setExtendedState(MAXIMIZED_BOTH);
+        //li.pack();
+        //li.setLocationRelativeTo(null);
     }
 
     public void startAddBookGUI(){
@@ -75,6 +79,8 @@ public class Initial {
         ab.setVisible(true);
         ab.setContentPane(ab.getWindowPanel());
         ab.setExtendedState(MAXIMIZED_BOTH);
+        //ab.pack();
+        //ab.setLocationRelativeTo(null);
     }
 
     public void startAddUserGUI(){

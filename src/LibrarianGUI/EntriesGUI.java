@@ -16,6 +16,7 @@ public class EntriesGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startLibrarianGUI();
             }
         });

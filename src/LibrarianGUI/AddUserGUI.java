@@ -21,6 +21,7 @@ public class AddUserGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startLibrarianGUI();
             }
         });

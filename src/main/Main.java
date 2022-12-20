@@ -7,7 +7,7 @@ public class Main {
         //  Only Debug Terminal Output
         System.out.println("Hello World");
 
-        //  Program start Code
+        //  Program start code
         Initial startProject = new Initial();
         startProject.startLoginUI();
 

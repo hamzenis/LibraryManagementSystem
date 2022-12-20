@@ -22,13 +22,13 @@ public class AddBookGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startLibrarianGUI();
             }
         });
     }
 
     public JPanel getWindowPanel(){
-
         return windowPanel;
     }
 }

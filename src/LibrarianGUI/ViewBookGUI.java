@@ -17,6 +17,7 @@ public class ViewBookGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                dispose();
                 in.startLibrarianGUI();
             }
         });
