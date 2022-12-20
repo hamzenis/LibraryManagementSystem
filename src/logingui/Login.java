@@ -1,8 +1,6 @@
 package src.logingui;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import src.main.Initial;
 
@@ -35,29 +33,21 @@ public class Login extends JFrame {
         /* Login GUI Actions */
 
         //  Close Button Login
-        closeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        closeButton.addActionListener(e -> System.exit(0));
 
         //  Login Button Login
-        logInButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
-                {
-                    setVisible(false);
-                    dispose();
-                    in.startLibrarianGUI();
-                } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
-                    setVisible(false);
-                    dispose();
-                    in.startUserGUI();
-                } else JOptionPane.showMessageDialog(null, "Incorrect Password");
+        logInButton.addActionListener(e -> {
+            if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
+            {
+                setVisible(false);
+                dispose();
+                in.startLibrarianGUI();
+            } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
+                setVisible(false);
+                dispose();
+                in.startUserGUI();
+            } else JOptionPane.showMessageDialog(null, "Incorrect Password");
 
-            }
         });
 
 

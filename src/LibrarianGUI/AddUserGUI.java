@@ -3,8 +3,6 @@ package src.LibrarianGUI;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AddUserGUI extends JFrame{
     private JTextField inputUserID;
@@ -17,13 +15,10 @@ public class AddUserGUI extends JFrame{
     Initial in = new Initial();
 
     public AddUserGUI() {
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                dispose();
-                in.startLibrarianGUI();
-            }
+        backButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startLibrarianGUI();
         });
     }
 

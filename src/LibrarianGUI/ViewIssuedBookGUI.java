@@ -3,8 +3,6 @@ package src.LibrarianGUI;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ViewIssuedBookGUI extends JFrame{
     private JPanel windowPanel;
@@ -12,13 +10,10 @@ public class ViewIssuedBookGUI extends JFrame{
     Initial in = new Initial();
 
     public ViewIssuedBookGUI() {
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                dispose();
-                in.startLibrarianGUI();
-            }
+        backButton.addActionListener(e -> {
+            setVisible(false);
+            dispose();
+            in.startLibrarianGUI();
         });
     }
 
