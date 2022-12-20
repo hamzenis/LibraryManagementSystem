@@ -24,7 +24,7 @@ public class Login extends JFrame {
         *  jedoch besser wenn alles erbt von Klasse GUI[siehe Idea Improvements])
         *
         */
-        // setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
 

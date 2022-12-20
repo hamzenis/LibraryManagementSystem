@@ -68,9 +68,9 @@ public class Initial {
         li.setContentPane(li.getWindowPanel());
         li.setTitle("LMS-Admin Panel");
         li.setVisible(true);
-        li.setExtendedState(MAXIMIZED_BOTH);
-        //li.pack();
-        //li.setLocationRelativeTo(null);
+        //li.setExtendedState(MAXIMIZED_BOTH);
+        li.pack();
+        li.setLocationRelativeTo(null);
     }
 
     public void startAddBookGUI(){
@@ -78,9 +78,9 @@ public class Initial {
         ab.setTitle("LMS-Admin Panel");
         ab.setVisible(true);
         ab.setContentPane(ab.getWindowPanel());
-        ab.setExtendedState(MAXIMIZED_BOTH);
-        //ab.pack();
-        //ab.setLocationRelativeTo(null);
+        //ab.setExtendedState(MAXIMIZED_BOTH);
+        ab.pack();
+        ab.setLocationRelativeTo(null);
     }
 
     public void startAddUserGUI(){
