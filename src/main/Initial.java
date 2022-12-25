@@ -50,6 +50,8 @@ public class Initial {
         ab.setTitle("Welcome $User to LMS - Library Management System");
         ab.setVisible(true);
         ab.setExtendedState(MAXIMIZED_BOTH);
+        //ab.pack();
+        //ab.setLocationRelativeTo(null);
     }
 
     public void startIssuedBookGUI(){
@@ -58,6 +60,8 @@ public class Initial {
         ib.setTitle("Welcome $User to LMS - Library Management System");
         ib.setVisible(true);
         ib.setExtendedState(MAXIMIZED_BOTH);
+        //ib.pack();
+        //ib.setLocationRelativeTo(null);
     }
 
 
@@ -68,9 +72,9 @@ public class Initial {
         li.setContentPane(li.getWindowPanel());
         li.setTitle("LMS-Admin Panel");
         li.setVisible(true);
-        //li.setExtendedState(MAXIMIZED_BOTH);
-        li.pack();
-        li.setLocationRelativeTo(null);
+        li.setExtendedState(MAXIMIZED_BOTH);
+        //li.pack();
+        //li.setLocationRelativeTo(null);
     }
 
     public void startAddBookGUI(){
@@ -78,9 +82,9 @@ public class Initial {
         ab.setTitle("LMS-Admin Panel");
         ab.setVisible(true);
         ab.setContentPane(ab.getWindowPanel());
-        //ab.setExtendedState(MAXIMIZED_BOTH);
-        ab.pack();
-        ab.setLocationRelativeTo(null);
+        ab.setExtendedState(MAXIMIZED_BOTH);
+        //ab.pack();
+        //ab.setLocationRelativeTo(null);
     }
 
     public void startAddUserGUI(){
@@ -89,6 +93,8 @@ public class Initial {
         au.setContentPane(au.getWindowPanel());
         au.setVisible(true);
         au.setExtendedState(MAXIMIZED_BOTH);
+        //au.pack();
+        //au.setLocationRelativeTo(null);
     }
 
     public void startIssueBookUsersGUI(){
@@ -97,6 +103,8 @@ public class Initial {
         ibu.setContentPane(ibu.getWindowPanel());
         ibu.setVisible(true);
         ibu.setExtendedState(MAXIMIZED_BOTH);
+        //ibu.pack();
+        //ibu.setLocationRelativeTo(null);
     }
 
     public void startEntriesGUI(){
@@ -105,6 +113,8 @@ public class Initial {
         ne.setContentPane(ne.getWindowPanel());
         ne.setVisible(true);
         ne.setExtendedState(MAXIMIZED_BOTH);
+        //ne.pack();
+        //ne.setLocationRelativeTo(null);
     }
 
     public void startViewBookGUI(){
@@ -113,6 +123,8 @@ public class Initial {
         vb.setVisible(true);
         vb.setContentPane(vb.getWindowPanel());
         vb.setExtendedState(MAXIMIZED_BOTH);
+        //vb.pack();
+        //vb.setLocationRelativeTo(null);
     }
 
     public void startViewIssuedBook(){
@@ -121,6 +133,8 @@ public class Initial {
         vib.setTitle("LMS-Admin Panel");
         vib.setVisible(true);
         vib.setExtendedState(MAXIMIZED_BOTH);
+        //vib.pack();
+        //vib.setLocationRelativeTo(null);
     }
 
     public void startViewReturnedBook(){
@@ -129,6 +143,8 @@ public class Initial {
         rb.setTitle("LMS-Admin Panel");
         rb.setVisible(true);
         rb.setExtendedState(MAXIMIZED_BOTH);
+        //rb.pack();
+        //rb.setLocationRelativeTo(null);
     }
 
     public void startViewUserGUI(){
@@ -137,6 +153,8 @@ public class Initial {
         vu.setTitle("LMS-Admin Panel");
         vu.setVisible(true);
         vu.setExtendedState(MAXIMIZED_BOTH);
+        //vu.pack();
+        //vu.setLocationRelativeTo(null);
     }
 
 }
