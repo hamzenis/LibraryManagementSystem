@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddUserGUI extends JFrame{
-    private JTextField inputUserID;
     private JTextField inputUsername;
     private JTextField inputLastname;
     private JComboBox inputTypeUser;
@@ -17,18 +16,21 @@ public class AddUserGUI extends JFrame{
     private JButton saveButton;
     Initial in = new Initial();
 
+
     public AddUserGUI() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();
             in.startLibrarianGUI();
         });
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                DBCon test = new DBCon();
-                test.sqlExecute("insert into Author (First_name, Last_name) VALUES ('Hamzenis', 'Kryeziu');");
-            }
+        saveButton.addActionListener(e -> {
+            DBCon dbaction = new DBCon();
+            String inputSQL = "insert into Author (First_name, Last_name) VALUES ('"
+                    + inputUsername.getText() + "', '"
+                    + inputLastname.getText() + "');";
+            dbaction.sqlExecute(inputSQL);
         });
     }
 

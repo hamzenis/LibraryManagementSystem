@@ -1,20 +1,21 @@
 package src.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 
 
 /*  How to use:
- *   Create a DBCon Object and use the sqlExecute Function
+ *      Create a DBCon Object and use the sqlExecute Function
  *
  */
+
+// Debug query: insert into Author (First_name, Last_name) VALUES ('Hamzenis', 'Kryeziu');
+
 public class DBCon {
 
     //  Vars
     Connection connection = null;
 
-    //  Constructor
+    //  Constructor with connection executed with creation of an object
     public DBCon() {
         createConnection();
     }
@@ -26,43 +27,44 @@ public class DBCon {
         try {
             //  Insert username(normally root) and password(set at MySQL installation) in Connection
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Library_Management_System", "root", "root");
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
-    //  Give a SQL Query to the function and it will be executed.
+    //  Give a SQL Query (DDL) to the function and it will be executed.
     public void sqlExecute(String inputSQL) {
 
         try {
             Statement statement = connection.createStatement();
             boolean resultSet = statement.execute(inputSQL);
 
-            /*  Debug:
-             *  boolean resultSet = statement.execute("insert into Author (First_name, Last_name) VALUES ('Hamzenis', 'Kryeziu');");
-             */
-
             //  Debug
-            System.out.println("Done!");
-
+            System.out.println("Done SQL Execution! [DBcon.sqlExecute()]");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
+    //  Prints Table Author in Terminal (Order: Firstname Lastname ID)
     public void printTableAuthor() {
-    /*  Debug print statement
+        try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from Author");
             while (resultSet.next()) {
-                System.out.println(resultSet.getString("First_name"));
+                System.out.println
+                        (resultSet.getString("First_name")
+                                + " "
+                                + resultSet.getString("Last_name")
+                                + " ID: "
+                                + resultSet.getInt("idAuthor")
+                        );
             }
-     */
-
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
