@@ -1,8 +1,11 @@
 package src.LibrarianGUI;
 
+import src.db.DBCon;
 import src.main.Initial;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddUserGUI extends JFrame{
     private JTextField inputUserID;
@@ -19,6 +22,13 @@ public class AddUserGUI extends JFrame{
             setVisible(false);
             dispose();
             in.startLibrarianGUI();
+        });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DBCon test = new DBCon();
+                test.sqlExecute("insert into Author (First_name, Last_name) VALUES ('Hamzenis', 'Kryeziu');");
+            }
         });
     }
 
