@@ -7,7 +7,9 @@ package src.main;
  *   - Add save button functionality in every GUI window
  *   - setDefaultCloseOperation(EXIT_ON_CLOSE); in jedes GUI einfügen
  *   - Database in Table Author noch Type of User hinzufügen (Administrator/User)
- *   - ....
+ *   - Connect LoginGUI with User Table Mysql
+ *   - Ändern Table Genre PK to autoincrement
+ *   - ...
  *
  */
 public class Main {

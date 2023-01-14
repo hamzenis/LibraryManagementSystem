@@ -25,12 +25,28 @@ public class AddUserGUI extends JFrame{
             dispose();
             in.startLibrarianGUI();
         });
+
         saveButton.addActionListener(e -> {
             DBCon dbaction = new DBCon();
-            String inputSQL = "insert into Author (First_name, Last_name) VALUES ('"
-                    + inputUsername.getText() + "', '"
-                    + inputLastname.getText() + "');";
+            String inputSQL;
+            if (inputTypeUser.getSelectedItem() == "Administrator") {
+                inputSQL = "insert into User (First_name, Last_name, Is_Librarian) VALUES ('"
+                        + inputUsername.getText() + "', '"
+                        + inputLastname.getText() + "', '"
+                        + "1" + "');";
+            } else {
+                inputSQL = "insert into User (First_name, Last_name, Is_Librarian) VALUES ('"
+                        + inputUsername.getText() + "', '"
+                        + inputLastname.getText() + "', '"
+                        + "0" + "');";
+            }
             dbaction.sqlExecute(inputSQL);
+            JOptionPane.showMessageDialog(null, "User Added Successfully!");
+
+            //  Clear last input
+            inputUsername.setText("");
+            inputLastname.setText("");
+            inputTypeUser.setSelectedItem("");
         });
     }
 
