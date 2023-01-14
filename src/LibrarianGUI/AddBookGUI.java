@@ -11,11 +11,11 @@ public class AddBookGUI extends JFrame{
     private JTextField authorLName;
     private JTextField inputBookName;
     private JTextField inputDate;
-    private JTextField inputGenre;
     private JTextField inputQuantity;
     private JButton backButton;
     private JButton saveButton;
     private JTextField authorFName;
+    private JComboBox comboBox1;
     Initial in = new Initial();
 
     public AddBookGUI() {

@@ -30,12 +30,12 @@ public class AddUserGUI extends JFrame{
             DBCon dbaction = new DBCon();
             String inputSQL;
             if (inputTypeUser.getSelectedItem() == "Administrator") {
-                inputSQL = "insert into User (First_name, Last_name, Is_Librarian) VALUES ('"
+                inputSQL = "insert into User (firstname, lastname, isLibrarian) VALUES ('"
                         + inputUsername.getText() + "', '"
                         + inputLastname.getText() + "', '"
                         + "1" + "');";
             } else {
-                inputSQL = "insert into User (First_name, Last_name, Is_Librarian) VALUES ('"
+                inputSQL = "insert into User (firstname, lastname, isLibrarian) VALUES ('"
                         + inputUsername.getText() + "', '"
                         + inputLastname.getText() + "', '"
                         + "0" + "');";
