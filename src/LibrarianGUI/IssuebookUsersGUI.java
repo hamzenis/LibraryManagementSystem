@@ -5,7 +5,6 @@ import src.main.Initial;
 import javax.swing.*;
 
 public class IssuebookUsersGUI extends JFrame{
-    private JTextField inputIssueID;
     private JTextField inputDate;
     private JTextField inputBookID;
     private JTextField inputUserID;
