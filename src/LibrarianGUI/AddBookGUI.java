@@ -24,14 +24,9 @@ public class AddBookGUI extends JFrame{
             in.startLibrarianGUI();
         });
         saveButton.addActionListener(e -> {
-            /*
-                String inputSQL = "insert into Author (First_name, Last_name) VALUES ('"
-                    + authorFName.getText() + "', '"
-                    + authorLName.getText() + "');";
-
-             */
-
-            String inputBookSQL = "insert into";
+            //  Add Book and Author and book_author
+            String inputBookSQL = "insert into " + inputBookName;
+            String inputAuthorSQL = "insert into ";
 
 
         });
