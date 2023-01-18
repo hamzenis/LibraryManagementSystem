@@ -48,7 +48,7 @@ public class DBCon {
     }
 
 
-    //  Prints Table Author in Terminal (Order: Firstname Lastname ID)
+    //  Debug: Prints Table Author in Terminal (Order: Firstname Lastname ID)
     public void printTableAuthor() {
         try {
             Statement statement = connection.createStatement();
@@ -62,9 +62,36 @@ public class DBCon {
                                 + resultSet.getInt("idAuthor")
                         );
             }
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    //  Debug: Prints Table Book in Terminal (Order: Title, Pub Year, Quantity)
+    public void printTableBook() {
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from Book");
+            while (resultSet.next()) {
+                System.out.println
+                        (resultSet.getString("bookTitle")
+                                + " "
+                                + resultSet.getString("pubYear")
+                                + " Quantity: "
+                                + resultSet.getInt("quantity")
+                        );
+            }
+            resultSet.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    //  Getter
+    public Connection getConnection() {
+        return connection;
     }
 
 
