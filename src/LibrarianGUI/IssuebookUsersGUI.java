@@ -14,6 +14,7 @@ public class IssuebookUsersGUI extends JFrame{
     Initial in = new Initial();
 
     public IssuebookUsersGUI() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();

@@ -3,8 +3,6 @@ package src.LibrarianGUI;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AddBookGUI extends JFrame{
     private JPanel windowPanel;
@@ -19,6 +17,7 @@ public class AddBookGUI extends JFrame{
     Initial in = new Initial();
 
     public AddBookGUI() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();

@@ -11,6 +11,8 @@ public class IssuedBooks extends JFrame{
 
 
     public IssuedBooks() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();

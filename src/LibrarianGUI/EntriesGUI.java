@@ -10,6 +10,7 @@ public class EntriesGUI extends JFrame{
     Initial in = new Initial();
 
     public EntriesGUI() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();

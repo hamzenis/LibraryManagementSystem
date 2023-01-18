@@ -10,6 +10,8 @@ public class ViewUserGUI extends JFrame {
     Initial in = new Initial();
 
     public ViewUserGUI() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();

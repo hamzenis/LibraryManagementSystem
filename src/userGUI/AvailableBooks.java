@@ -13,6 +13,8 @@ public class AvailableBooks extends JFrame {
 
 
     public AvailableBooks() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         backbutton.addActionListener(e -> {
             setVisible(false);
             dispose();

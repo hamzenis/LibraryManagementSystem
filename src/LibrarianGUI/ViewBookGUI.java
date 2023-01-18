@@ -13,24 +13,16 @@ public class ViewBookGUI extends JFrame {
     private JPanel windowPanel;
     private JButton backButton;
     private JTable bookTable;
-    private JButton fetchButton;
     Initial in = new Initial();
 
     public ViewBookGUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         createTable();
+
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();
             in.startLibrarianGUI();
-        });
-
-        // Can be deleted, no functionality planned, delete in form
-        fetchButton.addActionListener(e -> {
-            //  Debug
-            String newS = getGenre(2);
-            System.out.println("Button pressed placeholder");
-            System.out.println(newS);
         });
     }
 
