@@ -6,6 +6,7 @@ package src.main;
  *   - Add save button functionality in every GUI window
  *   - Connect LoginGUI with User Table Mysql
  *   - Update Readme File
+ *   - Add Search field in AvailableBooks GUI in User GUI
  *
  */
 public class Main {
