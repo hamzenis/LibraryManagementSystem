@@ -2,13 +2,10 @@ package src.db;
 
 import java.sql.*;
 
-
 /*  How to use:
  *      Create a DBCon Object and use the sqlExecute Function
  *
  */
-
-// Debug query: insert into Author (First_name, Last_name) VALUES ('Hamzenis', 'Kryeziu');
 
 public class DBCon {
 

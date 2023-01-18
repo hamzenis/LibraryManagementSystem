@@ -4,7 +4,6 @@ package src.main;
 /*      TODO:
  *   - Add more DBCon functions
  *   - Add save button functionality in every GUI window
- *   - setDefaultCloseOperation(EXIT_ON_CLOSE); in jedes GUI einfügen
  *   - Connect LoginGUI with User Table Mysql
  *   - Update Readme File
  *
