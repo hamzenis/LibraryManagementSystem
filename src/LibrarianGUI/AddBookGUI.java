@@ -3,8 +3,6 @@ package src.LibrarianGUI;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AddBookGUI extends JFrame{
     private JPanel windowPanel;
@@ -19,20 +17,16 @@ public class AddBookGUI extends JFrame{
     Initial in = new Initial();
 
     public AddBookGUI() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();
             in.startLibrarianGUI();
         });
         saveButton.addActionListener(e -> {
-            /*
-                String inputSQL = "insert into Author (First_name, Last_name) VALUES ('"
-                    + authorFName.getText() + "', '"
-                    + authorLName.getText() + "');";
-
-             */
-
-            String inputBookSQL = "insert into";
+            //  Add Book and Author and book_author
+            String inputBookSQL = "insert into " + inputBookName;
+            String inputAuthorSQL = "insert into ";
 
 
         });

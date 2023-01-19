@@ -10,6 +10,8 @@ public class ViewIssuedBookGUI extends JFrame{
     Initial in = new Initial();
 
     public ViewIssuedBookGUI() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();

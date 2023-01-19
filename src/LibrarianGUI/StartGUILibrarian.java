@@ -18,6 +18,7 @@ public class StartGUILibrarian extends JFrame {
     Initial in = new Initial();
 
     public StartGUILibrarian() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         addUserButton.addActionListener(e -> {
             setVisible(false);

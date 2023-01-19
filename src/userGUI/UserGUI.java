@@ -13,6 +13,8 @@ public class UserGUI extends JFrame{
 
 
     public UserGUI() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         issuedBooksButton.addActionListener(e -> {
             setVisible(false);
             dispose();

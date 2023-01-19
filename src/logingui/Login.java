@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import src.main.Initial;
 
+
 public class Login extends JFrame {
 
     //  GUI Vars
@@ -22,13 +23,8 @@ public class Login extends JFrame {
         /* Close program with "X" button
         *  (auch in Initial möglich[siehe startLoginGUI],
         *  jedoch besser wenn alles erbt von Klasse GUI[siehe Idea Improvements])
-        *
         */
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-
-
-
 
         /* Login GUI Actions */
 
@@ -49,7 +45,6 @@ public class Login extends JFrame {
             } else JOptionPane.showMessageDialog(null, "Incorrect Password");
 
         });
-
 
     }
 
