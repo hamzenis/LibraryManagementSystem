@@ -2,11 +2,14 @@ package src.main;
 
 
 /*      TODO:
- *   - Add more DBCon functions
  *   - Add save button functionality in every GUI window
  *   - Connect LoginGUI with User Table Mysql
  *   - Update Readme File
- *   - Add Search field in AvailableBooks GUI in User GUI
+ *   - Add search field from AvailableBooksGUI in userGUI-package to ViewBook GUI in librarianGUI-package
+ *   - Add in View Book GUI: Author firstname and lastname
+ *   - Add possibility to add more than one author per book
+ *   - Rewrite code from saveButton in function insertUser() from AddUserGui and add it into DBCon Class
+ *   - ....
  *
  */
 public class Main {

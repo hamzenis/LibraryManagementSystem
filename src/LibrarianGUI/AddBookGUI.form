@@ -22,7 +22,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <toolTipText value="Date Format: 1900-12-12"/>
+        </properties>
       </component>
       <component id="435e2" class="javax.swing.JLabel">
         <constraints>
@@ -130,7 +132,7 @@
           <text value="Author Firstname"/>
         </properties>
       </component>
-      <component id="dc825" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="dc825" class="javax.swing.JComboBox" binding="comboGenre">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

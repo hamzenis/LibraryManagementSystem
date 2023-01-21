@@ -1,5 +1,6 @@
 package src.LibrarianGUI;
 
+import src.db.DBCon;
 import src.main.Initial;
 
 import javax.swing.*;
@@ -13,27 +14,47 @@ public class AddBookGUI extends JFrame{
     private JButton backButton;
     private JButton saveButton;
     private JTextField authorFName;
-    private JComboBox comboBox1;
+    private JComboBox comboGenre;
     Initial in = new Initial();
 
     public AddBookGUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();
             in.startLibrarianGUI();
         });
+
         saveButton.addActionListener(e -> {
-            //  Add Book and Author and book_author
-            String inputBookSQL = "insert into " + inputBookName;
-            String inputAuthorSQL = "insert into ";
-
-
+            DBCon dbCon = new DBCon();
+            String values[] = {
+                    authorFName.getText(),
+                    authorLName.getText(),
+                    inputBookName.getText(),
+                    inputDate.getText(),
+                    comboGenre.getSelectedItem().toString(),
+                    inputQuantity.getText()
+            };
+            dbCon.insertBook(values);
+            clearInput();
         });
 
     }
 
-    public JPanel getWindowPanel(){
+    //  Clear last input
+    private void clearInput() {
+        authorFName.setText("");
+        authorLName.setText("");
+        inputBookName.setText("");
+        inputDate.setText("");
+        comboGenre.setSelectedItem("");
+        inputDate.setText("");
+        inputQuantity.setText("");
+    }
+
+
+    public JPanel getWindowPanel() {
         return windowPanel;
     }
 }
