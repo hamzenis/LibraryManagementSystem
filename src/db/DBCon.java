@@ -2,11 +2,6 @@ package src.db;
 
 import java.sql.*;
 
-/*  How to use:
- *      Create a DBCon Object and use the sqlExecute Function
- *
- */
-
 public class DBCon {
 
     //  Vars
@@ -18,7 +13,11 @@ public class DBCon {
     }
 
 
-    //  Don't have to be executed, because it's executed in the constructor
+    /*
+     * Don't have to be executed the first time, because it's executed in the constructor.
+     * Will be closed after every function from DBCon.
+     *
+     */
     public void createConnection() {
 
         try {
@@ -31,19 +30,62 @@ public class DBCon {
 
     //  Give a SQL Query (DDL) to the function and it will be executed.
     public void sqlExecute(String inputSQL) {
-
+        Statement statement = null;
         try {
-            Statement statement = connection.createStatement();
+            statement = connection.createStatement();
             boolean resultSet = statement.execute(inputSQL);
-
-            //  Debug
-            System.out.println("Done SQL Execution! [DBcon.sqlExecute()]");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException se) {
+                    se.printStackTrace();
+                }
+            }
         }
     }
 
-    // inserts Book into database with author and genre
+
+    //  inserts User into database
+    public void insertUser(String values[]) {
+        PreparedStatement stmt1 = null;
+        try {
+            // Disable auto-commit mode
+            connection.setAutoCommit(false);
+
+            String userSQL = "INSERT INTO User (firstname, lastname, isLibrarian) VALUES ( ?, ?, ?)";
+            stmt1 = connection.prepareStatement(userSQL);
+            stmt1.setString(1, values[0]);
+            stmt1.setString(2, values[1]);
+            if (values[2].equals("Administrator")) {
+                stmt1.setInt(3, 1);
+            } else {
+                stmt1.setInt(3, 0);
+            }
+            stmt1.executeUpdate();
+            connection.commit();
+
+        } catch (SQLException se) {
+            se.printStackTrace();
+            // If there is an error, rollback the transaction
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } finally {
+            try {
+                if (stmt1 != null) stmt1.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //  inserts Book into database with author and genre
     public void insertBook(String values[]) {
 
         PreparedStatement stmt1 = null;
@@ -73,8 +115,7 @@ public class DBCon {
             ResultSet rs = stmt3.executeQuery();
             int authorId = -1;
             if (rs.next()) {
-                // Can be deleted (double check please)
-                authorId = rs.getInt("idAuthor");
+                //  Nothing will be done
             } else {
                 String authorSQL = "INSERT INTO Author (firstname, lastname) VALUES (?, ?)";
                 stmt2 = connection.prepareStatement(authorSQL);

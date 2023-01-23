@@ -37,6 +37,7 @@ public class AddBookGUI extends JFrame{
                     inputQuantity.getText()
             };
             dbCon.insertBook(values);
+            JOptionPane.showMessageDialog(null, "Book Added Successfully!");
             clearInput();
         });
 

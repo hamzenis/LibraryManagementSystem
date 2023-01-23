@@ -28,30 +28,34 @@ public class AvailableBooks extends JFrame {
         });
     }
 
-    //  Creates Table Book
+    //  Creates Table Book with Authors name
     private void createTable() {
         DBCon dbCon = new DBCon();
-        String[] columnNames = {"Book Title", "Publishing Year", "Genre", "Quantity"};
+        String[] columnNames = {"Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
         DefaultTableModel modelBookTable = new DefaultTableModel(columnNames, 0);
         try {
             Statement statement = dbCon.getConnection().createStatement();
-            String sqlQuery = "Select * From Book";
-            ResultSet rs = statement.executeQuery(sqlQuery);
-            while (rs.next()) {
-                String bookTitle = rs.getString("bookTitle");
-                String pubYear = rs.getString("pubYear");
-                String genre = getGenre(rs.getInt("Category_idCategory"));
-                String quantity = rs.getString("quantity");
-                String[] data = {bookTitle, pubYear, genre, quantity};
+            String sqlQuery = "Select Book.*, Author.firstname, Author.lastname from Book "
+                    + "JOIN book_author ON Book.idBook = book_author.Book_idBook "
+                    + "JOIN Author ON book_author.Author_idAuthor = Author.idAuthor";
+            ResultSet rsBook = statement.executeQuery(sqlQuery);
+            while (rsBook.next()) {
+                String bookTitle = rsBook.getString("bookTitle");
+                String pubYear = rsBook.getString("pubYear");
+                String genre = getGenre(rsBook.getInt("Category_idCategory"));
+                String quantity = rsBook.getString("quantity");
+                String author = rsBook.getString("firstname") + " " + rsBook.getString("lastname");
+                String[] data = {bookTitle, pubYear, genre, quantity, author};
                 modelBookTable.addRow(data);
             }
             bookTable.setModel(modelBookTable);
-            rs.close();
+            rsBook.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
 
     //  Function to get the right genre as a String
     private String getGenre(int idGenre) {

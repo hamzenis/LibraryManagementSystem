@@ -4,12 +4,16 @@ package src.main;
 /*      TODO:
  *   - Add save button functionality in every GUI window
  *   - Connect LoginGUI with User Table Mysql
- *   - Update Readme File
  *   - Add search field from AvailableBooksGUI in userGUI-package to ViewBook GUI in librarianGUI-package
- *   - Add in View Book GUI: Author firstname and lastname
- *   - Add possibility to add more than one author per book
- *   - Rewrite code from saveButton in function insertUser() from AddUserGui and add it into DBCon Class
- *   - ....
+ *   - Link Genre JCombobox with Database in AddBookGUI
+ *   - Add functionality in Search field in ViewBookGUI and AvailableBookGUI
+ *   - Clean up createTable() in ViewBookGUI and AvailableBookGUI
+ *
+ *      Backlog (later TODO):
+ *          - Add possibility to add more than one author per book
+ *          - Update Readme File
+ *          - Replace printStackTrace() when in production code -> getMessage()
+ *          - ...
  *
  */
 public class Main {

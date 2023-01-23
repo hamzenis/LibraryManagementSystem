@@ -26,19 +26,12 @@ public class AddUserGUI extends JFrame{
 
         saveButton.addActionListener(e -> {
             DBCon dbCon = new DBCon();
-            String inputSQL;
-            if (inputTypeUser.getSelectedItem() == "Administrator") {
-                inputSQL = "insert into User (firstname, lastname, isLibrarian) VALUES ('"
-                        + inputUsername.getText() + "', '"
-                        + inputLastname.getText() + "', '"
-                        + "1" + "');";
-            } else {
-                inputSQL = "insert into User (firstname, lastname, isLibrarian) VALUES ('"
-                        + inputUsername.getText() + "', '"
-                        + inputLastname.getText() + "', '"
-                        + "0" + "');";
-            }
-            dbCon.sqlExecute(inputSQL);
+            String values[] = {
+                    inputUsername.getText(),
+                    inputLastname.getText(),
+                    inputTypeUser.getSelectedItem().toString()
+            };
+            dbCon.insertUser(values);
             JOptionPane.showMessageDialog(null, "User Added Successfully!");
             clearInput();
         });
