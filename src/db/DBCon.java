@@ -1,5 +1,6 @@
 package src.db;
 
+import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 
 public class DBCon {
@@ -16,6 +17,7 @@ public class DBCon {
     /*
      * Don't have to be executed the first time, because it's executed in the constructor.
      * Will be closed after every function from DBCon.
+     * You have to use createConnection(), if you want to execute more than one methode use for an object.
      *
      */
     public void createConnection() {
@@ -87,12 +89,10 @@ public class DBCon {
 
     //  inserts Book into database with author and genre
     public void insertBook(String values[]) {
-
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         PreparedStatement stmt3 = null;
         PreparedStatement stmt4 = null;
-
         try {
             // Disable auto-commit mode
             connection.setAutoCommit(false);
@@ -113,10 +113,7 @@ public class DBCon {
             stmt3.setString(1, values[0]);
             stmt3.setString(2, values[1]);
             ResultSet rs = stmt3.executeQuery();
-            int authorId = -1;
-            if (rs.next()) {
-                //  Nothing will be done
-            } else {
+            if (!rs.next()) {
                 String authorSQL = "INSERT INTO Author (firstname, lastname) VALUES (?, ?)";
                 stmt2 = connection.prepareStatement(authorSQL);
                 stmt2.setString(1, values[0]);
@@ -134,7 +131,6 @@ public class DBCon {
             stmt4.executeUpdate();
 
             connection.commit();
-
         } catch (SQLException se) {
             se.printStackTrace();
 
@@ -146,7 +142,6 @@ public class DBCon {
             }
 
         } finally {
-
             try {
                 if (stmt4 != null) stmt4.close();
                 if (stmt3 != null) stmt3.close();
@@ -159,6 +154,134 @@ public class DBCon {
         }
     }
 
+    //  Creates table books with author and genre
+    public DefaultTableModel createTableBooks() {
+        String[] columnNames = {"Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
+        DefaultTableModel modelBookTable = new DefaultTableModel(columnNames, 0);
+        Statement stmt = null;
+        ResultSet rsBook = null;
+        try {
+            stmt = connection.createStatement();
+            String sqlQuery = "Select Book.*, Author.firstname, Author.lastname from Book "
+                    + "JOIN book_author ON Book.idBook = book_author.Book_idBook "
+                    + "JOIN Author ON book_author.Author_idAuthor = Author.idAuthor";
+            rsBook = stmt.executeQuery(sqlQuery);
+            while (rsBook.next()) {
+                String bookTitle = rsBook.getString("bookTitle");
+                String pubYear = rsBook.getString("pubYear");
+                String genre = getGenre(rsBook.getInt("Category_idCategory"));
+                String quantity = rsBook.getString("quantity");
+                String author = rsBook.getString("firstname") + " " + rsBook.getString("lastname");
+                String[] data = {bookTitle, pubYear, genre, quantity, author};
+                modelBookTable.addRow(data);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+                if (rsBook != null) rsBook.close();
+                if (connection != null) connection.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+            return modelBookTable;
+        }
+    }
+
+
+    //  Executes a SQL query and returns a ResultSet
+    public ResultSet executeQuery(String sql) {
+        Statement stmt = null;
+        try {
+            stmt = connection.createStatement();
+            return stmt.executeQuery(sql);
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        return null;
+    }
+
+    //  (General) Returns a table created from ResultSet and column names
+    public DefaultTableModel createTableFromResultSet(ResultSet rs, String[] columns) {
+        DefaultTableModel model = new DefaultTableModel(columns, 0);
+        try {
+            while (rs.next()) {
+                Object[] row = new Object[columns.length];
+                for (int i = 0; i < columns.length; i++) {
+                    row[i] = rs.getObject(i + 1);
+                }
+                model.addRow(row);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return model;
+    }
+
+    //  Searches in the database for the inputted author or book and returns a DefaultTableModel
+    public DefaultTableModel searchBookAuthor(String searchTerm) {
+        String[] columnNames = {"Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
+        DefaultTableModel modelBookTable = new DefaultTableModel(columnNames, 0);
+        Statement stmt = null;
+        ResultSet rsBook = null;
+        try {
+            stmt = connection.createStatement();
+            String sqlQuery = "Select Book.*, Author.firstname, Author.lastname from Book "
+                    + "JOIN book_author ON Book.idBook = book_author.Book_idBook "
+                    + "JOIN Author ON book_author.Author_idAuthor = Author.idAuthor "
+                    + "WHERE Book.bookTitle LIKE '%" + searchTerm
+                    + "%' OR Author.firstname LIKE '%" + searchTerm
+                    + "%' OR Author.lastname LIKE '%" + searchTerm
+                    + "%'";
+            rsBook = stmt.executeQuery(sqlQuery);
+            while (rsBook.next()) {
+                String bookTitle = rsBook.getString("bookTitle");
+                String pubYear = rsBook.getString("pubYear");
+                String genre = getGenre(rsBook.getInt("Category_idCategory"));
+                String quantity = rsBook.getString("quantity");
+                String author = rsBook.getString("firstname") + " " + rsBook.getString("lastname");
+                String[] data = {bookTitle, pubYear, genre, quantity, author};
+                modelBookTable.addRow(data);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+                if (rsBook != null) rsBook.close();
+                if (connection != null) connection.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+            return modelBookTable;
+        }
+    }
+
+
+    //  Method to get the right genre as a String
+    private String getGenre(int idGenre) {
+        String sqlInput = "Select genre FROM Category WHERE idCategory = " + idGenre + ";";
+        String genre = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery(sqlInput);
+            while (rs.next()) genre = rs.getString("genre");
+            rs.close();
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+                if (rs != null) rs.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+            return genre;
+        }
+    }
 
     //  Getters
     public Connection getConnection() {

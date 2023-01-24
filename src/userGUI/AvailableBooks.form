@@ -18,13 +18,15 @@
           <text value="Back"/>
         </properties>
       </component>
-      <component id="87d48" class="javax.swing.JTextField" binding="inputField" default-binding="true">
+      <component id="87d48" class="javax.swing.JTextField" binding="searchField">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="5" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="40"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+        </properties>
       </component>
       <component id="50ef3" class="javax.swing.JButton" binding="searchButton" default-binding="true">
         <constraints>
@@ -48,6 +50,7 @@
           <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Monaco" style="1"/>
           <icon value="src/userGUI/availableBook.png"/>
           <text value="All Books"/>
         </properties>
