@@ -4,8 +4,6 @@ import src.db.DBCon;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AddUserGUI extends JFrame{
     private JTextField inputUsername;
@@ -27,27 +25,23 @@ public class AddUserGUI extends JFrame{
         });
 
         saveButton.addActionListener(e -> {
-            DBCon dbaction = new DBCon();
-            String inputSQL;
-            if (inputTypeUser.getSelectedItem() == "Administrator") {
-                inputSQL = "insert into User (firstname, lastname, isLibrarian) VALUES ('"
-                        + inputUsername.getText() + "', '"
-                        + inputLastname.getText() + "', '"
-                        + "1" + "');";
-            } else {
-                inputSQL = "insert into User (firstname, lastname, isLibrarian) VALUES ('"
-                        + inputUsername.getText() + "', '"
-                        + inputLastname.getText() + "', '"
-                        + "0" + "');";
-            }
-            dbaction.sqlExecute(inputSQL);
+            DBCon dbCon = new DBCon();
+            String values[] = {
+                    inputUsername.getText(),
+                    inputLastname.getText(),
+                    inputTypeUser.getSelectedItem().toString()
+            };
+            dbCon.insertUser(values);
             JOptionPane.showMessageDialog(null, "User Added Successfully!");
-
-            //  Clear last input
-            inputUsername.setText("");
-            inputLastname.setText("");
-            inputTypeUser.setSelectedItem("");
+            clearInput();
         });
+    }
+
+    //  Clear last input
+    private void clearInput() {
+        inputUsername.setText("");
+        inputLastname.setText("");
+        inputTypeUser.setSelectedItem("");
     }
 
     public JPanel getWindowPanel() {
