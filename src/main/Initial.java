@@ -18,10 +18,6 @@ public class Initial {
 
 
 
-    /*  Functions (noch nicht gemacht) */
-
-
-
     /*  Start of Program */
     public void startLoginUI(){
         Login lo = new Login();
