@@ -3,6 +3,7 @@ package src.LibrarianGUI;
 import src.main.Initial;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class StartGUILibrarian extends JFrame {
     private JPanel windowPanel;
