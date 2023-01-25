@@ -13,8 +13,6 @@ public class Login extends JFrame {
     private JButton logInButton;
     private JButton closeButton;
     private JPanel windowPanel;
-    private JLabel passwortJLabel;
-    private JLabel usernameJLabel;
     Initial in = new Initial();
 
 

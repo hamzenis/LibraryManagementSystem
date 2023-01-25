@@ -30,7 +30,13 @@ public class DBCon {
         }
     }
 
-    //  Give a SQL Query (DDL) to the function and it will be executed.
+
+
+    /*
+     *       SQL DDL methods
+     */
+
+    //  Give a SQL Query (DDL) to the function, and it will be executed.
     public void sqlExecute(String inputSQL) {
         Statement statement = null;
         try {
@@ -49,9 +55,21 @@ public class DBCon {
         }
     }
 
+    //  Executes a SQL query and returns a ResultSet
+    public ResultSet executeQuery(String sql) {
+        Statement stmt = null;
+        try {
+            stmt = connection.createStatement();
+            return stmt.executeQuery(sql);
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        return null;
+    }
+
 
     //  inserts User into database
-    public void insertUser(String values[]) {
+    public void insertUser(String[] values) {
         PreparedStatement stmt1 = null;
         try {
             // Disable auto-commit mode
@@ -88,7 +106,7 @@ public class DBCon {
     }
 
     //  inserts Book into database with author and genre
-    public void insertBook(String values[]) {
+    public void insertBook(String[] values) {
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
         PreparedStatement stmt3 = null;
@@ -154,53 +172,10 @@ public class DBCon {
         }
     }
 
-    //  Creates table books with author and genre
-    public DefaultTableModel createTableBooks() {
-        String[] columnNames = {"Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
-        DefaultTableModel modelBookTable = new DefaultTableModel(columnNames, 0);
-        Statement stmt = null;
-        ResultSet rsBook = null;
-        try {
-            stmt = connection.createStatement();
-            String sqlQuery = "Select Book.*, Author.firstname, Author.lastname from Book "
-                    + "JOIN book_author ON Book.idBook = book_author.Book_idBook "
-                    + "JOIN Author ON book_author.Author_idAuthor = Author.idAuthor";
-            rsBook = stmt.executeQuery(sqlQuery);
-            while (rsBook.next()) {
-                String bookTitle = rsBook.getString("bookTitle");
-                String pubYear = rsBook.getString("pubYear");
-                String genre = getGenre(rsBook.getInt("Category_idCategory"));
-                String quantity = rsBook.getString("quantity");
-                String author = rsBook.getString("firstname") + " " + rsBook.getString("lastname");
-                String[] data = {bookTitle, pubYear, genre, quantity, author};
-                modelBookTable.addRow(data);
-            }
-        } catch (SQLException se) {
-            se.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null) stmt.close();
-                if (rsBook != null) rsBook.close();
-                if (connection != null) connection.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-            return modelBookTable;
-        }
-    }
 
-
-    //  Executes a SQL query and returns a ResultSet
-    public ResultSet executeQuery(String sql) {
-        Statement stmt = null;
-        try {
-            stmt = connection.createStatement();
-            return stmt.executeQuery(sql);
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
-        return null;
-    }
+    /*
+     *       Table Methods
+     */
 
     //  (General) Returns a table created from ResultSet and column names
     public DefaultTableModel createTableFromResultSet(ResultSet rs, String[] columns) {
@@ -258,6 +233,80 @@ public class DBCon {
         }
     }
 
+    //  Creates table books with author and genre
+    public DefaultTableModel createTableBooks() {
+        String[] columnNames = {"Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
+        DefaultTableModel modelBookTable = new DefaultTableModel(columnNames, 0);
+        Statement stmt = null;
+        ResultSet rsBook = null;
+        try {
+            stmt = connection.createStatement();
+            String sqlQuery = "Select Book.*, Author.firstname, Author.lastname from Book "
+                    + "JOIN book_author ON Book.idBook = book_author.Book_idBook "
+                    + "JOIN Author ON book_author.Author_idAuthor = Author.idAuthor";
+            rsBook = stmt.executeQuery(sqlQuery);
+            while (rsBook.next()) {
+                String bookTitle = rsBook.getString("bookTitle");
+                String pubYear = rsBook.getString("pubYear");
+                String genre = getGenre(rsBook.getInt("Category_idCategory"));
+                String quantity = rsBook.getString("quantity");
+                String author = rsBook.getString("firstname") + " " + rsBook.getString("lastname");
+                String[] data = {bookTitle, pubYear, genre, quantity, author};
+                modelBookTable.addRow(data);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+                if (rsBook != null) rsBook.close();
+                if (connection != null) connection.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+            return modelBookTable;
+        }
+    }
+
+    public DefaultTableModel createTableIssuedBooks() {
+        String[] columnNames = {"Renter", "Book Title", "Date of Issue"};
+        DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
+        Statement stmt1 = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT User.firstname, User.lastname, Book.bookTitle, Borrow.dateOfBorrow "
+                    + "FROM Borrow "
+                    + "JOIN User ON User.idUser = Borrow.User_idUser "
+                    + "JOIN Book ON Book.idBook = Borrow.Book_idBook;";
+            stmt1 = connection.createStatement();
+            rs = stmt1.executeQuery(sql);
+            while (rs.next()) {
+                String renter = rs.getString("firstname") + " " + rs.getString("lastname");
+                String title = rs.getString("bookTitle");
+                String date = rs.getDate("dateOfBorrow").toString();
+                String[] values = {renter, title, date};
+                modelTable.addRow(values);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            try {
+                if (stmt1 != null) stmt1.close();
+                if (rs != null) rs.close();
+                if (connection != null) connection.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+            return modelTable;
+        }
+    }
+
+
+
+
+    /*
+     *       Getter methods
+     */
 
     //  Method to get the right genre as a String
     private String getGenre(int idGenre) {
@@ -283,7 +332,7 @@ public class DBCon {
         }
     }
 
-    //  Getters
+    //  Connection getter
     public Connection getConnection() {
         return this.connection;
     }
