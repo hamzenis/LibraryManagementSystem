@@ -68,14 +68,7 @@ public class Initial {
     /* Side Admin UI */
 
     public void startLibrarianGUI(){
-
         StartGUILibrarian li = new StartGUILibrarian();
-
-        JLabel background = new JLabel(new ImageIcon("src/LibrarianGUI/LibrarianGUIBackground.jpg"));
-        li.add(background);
-        background.setLayout(new FlowLayout());
-
-        li.setForeground(null);
         li.setContentPane(li.getWindowPanel());
         li.setTitle("LMS-Admin Panel");
         li.setVisible(true);
