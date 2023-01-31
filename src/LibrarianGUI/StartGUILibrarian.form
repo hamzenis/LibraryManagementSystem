@@ -84,6 +84,8 @@
           </grid>
         </constraints>
         <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/newBook.png"/>
           <text value="    Add Book  "/>
