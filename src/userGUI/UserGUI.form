@@ -29,6 +29,8 @@
               </grid>
             </constraints>
             <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
               <enabled value="true"/>
               <icon value="src/userGUI/IssueBookForUser.png"/>
               <text value="Issued books"/>
@@ -41,6 +43,8 @@
               </grid>
             </constraints>
             <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
               <icon value="src/userGUI/availableBook.png"/>
               <text value="Available books"/>
             </properties>

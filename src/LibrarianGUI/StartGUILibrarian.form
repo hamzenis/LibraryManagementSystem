@@ -22,6 +22,8 @@
           </grid>
         </constraints>
         <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/ViewUser.png"/>
           <text value="    View User  "/>
@@ -34,6 +36,8 @@
           </grid>
         </constraints>
         <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/Entries.png"/>
           <text value="    Entries    "/>
@@ -46,6 +50,8 @@
           </grid>
         </constraints>
         <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/IssueBook.png"/>
           <text value="    Issue Books"/>
@@ -72,6 +78,8 @@
           </grid>
         </constraints>
         <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/AddUser.png"/>
           <text value="    Add User   "/>
@@ -98,6 +106,8 @@
           </grid>
         </constraints>
         <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/IssuedBooks.png"/>
           <text value="  Issued Books"/>
@@ -110,6 +120,8 @@
           </grid>
         </constraints>
         <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/ReturnedBooks.png"/>
           <text value="Returned Books"/>
@@ -122,6 +134,8 @@
           </grid>
         </constraints>
         <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/AllBook.png"/>
           <text value="    View Book "/>
