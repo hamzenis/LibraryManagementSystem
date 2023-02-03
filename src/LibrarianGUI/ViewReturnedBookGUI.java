@@ -8,6 +8,7 @@ public class ViewReturnedBookGUI extends JFrame {
 
     private JPanel windowPanel;
     private JButton backButton;
+    private JTable table1;
     Initial in = new Initial();
 
     public ViewReturnedBookGUI() {

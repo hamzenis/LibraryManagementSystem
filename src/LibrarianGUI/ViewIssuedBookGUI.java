@@ -9,6 +9,8 @@ public class ViewIssuedBookGUI extends JFrame{
     private JPanel windowPanel;
     private JButton backButton;
     private JTable issuedBooksTable;
+    private JButton returnButton;
+    private JTextField textField1;
     Initial in = new Initial();
 
     public ViewIssuedBookGUI() {
