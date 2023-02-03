@@ -67,11 +67,6 @@ public class DBCon {
         return null;
     }
 
-    public int getIDUser() {
-        int id = 0;
-
-        return id;
-    }
 
     /*
      *   Gets Login credentials and returns if admin gui or user gui as an int:
@@ -315,22 +310,23 @@ public class DBCon {
     }
 
     public DefaultTableModel createTableIssuedBooks() {
-        String[] columnNames = {"Renter", "Book Title", "Date of Issue"};
+        String[] columnNames = {"ID", "Renter", "Book Title", "Date of Issue"};
         DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
         Statement stmt1 = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT User.firstname, User.lastname, Book.bookTitle, Borrow.dateOfBorrow "
+            String sql = "SELECT Borrow.idBorrow, User.firstname, User.lastname, Book.bookTitle, Borrow.dateOfBorrow "
                     + "FROM Borrow "
                     + "JOIN User ON User.idUser = Borrow.User_idUser "
                     + "JOIN Book ON Book.idBook = Borrow.Book_idBook;";
             stmt1 = connection.createStatement();
             rs = stmt1.executeQuery(sql);
             while (rs.next()) {
+                String idBorrow = rs.getString("idBorrow");
                 String renter = rs.getString("firstname") + " " + rs.getString("lastname");
                 String title = rs.getString("bookTitle");
                 String date = rs.getDate("dateOfBorrow").toString();
-                String[] values = {renter, title, date};
+                String[] values = {idBorrow, renter, title, date};
                 modelTable.addRow(values);
             }
         } catch (SQLException se) {
