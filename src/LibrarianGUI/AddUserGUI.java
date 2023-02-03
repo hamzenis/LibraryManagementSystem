@@ -5,13 +5,15 @@ import src.main.Initial;
 
 import javax.swing.*;
 
-public class AddUserGUI extends JFrame{
+public class AddUserGUI extends JFrame {
     private JTextField inputUsername;
     private JTextField inputLastname;
     private JComboBox inputTypeUser;
     private JPanel windowPanel;
     private JButton backButton;
     private JButton saveButton;
+    private JTextField passwordField;
+    private JTextField passwordFieldAgain;
     Initial in = new Initial();
 
 
@@ -25,15 +27,20 @@ public class AddUserGUI extends JFrame{
         });
 
         saveButton.addActionListener(e -> {
-            DBCon dbCon = new DBCon();
-            String values[] = {
-                    inputUsername.getText(),
-                    inputLastname.getText(),
-                    inputTypeUser.getSelectedItem().toString()
-            };
-            dbCon.insertUser(values);
-            JOptionPane.showMessageDialog(null, "User Added Successfully!");
-            clearInput();
+            if (passwordField.getText().equals(passwordFieldAgain.getText())) {
+                DBCon dbCon = new DBCon();
+                String values[] = {
+                        inputUsername.getText(),
+                        inputLastname.getText(),
+                        inputTypeUser.getSelectedItem().toString(),
+                        passwordField.getText()
+                };
+                int id = dbCon.insertUser(values);
+                JOptionPane.showMessageDialog(null, "User Added Successfully! \nUsername: " + id);
+                clearInput();
+            } else {
+                JOptionPane.showMessageDialog(null, "Reenter Password! Not same input!");
+            }
         });
     }
 
@@ -42,6 +49,8 @@ public class AddUserGUI extends JFrame{
         inputUsername.setText("");
         inputLastname.setText("");
         inputTypeUser.setSelectedItem("");
+        passwordField.setText("");
+        passwordFieldAgain.setText("");
     }
 
     public JPanel getWindowPanel() {

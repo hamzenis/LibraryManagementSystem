@@ -67,16 +67,56 @@ public class DBCon {
         return null;
     }
 
+    public int getIDUser() {
+        int id = 0;
+
+        return id;
+    }
+
+    /*
+     *   Gets Login credentials and returns if admin gui or user gui as an int:
+     *  - 1 if Admin
+     *  - 0 if User
+     *  - -1 if the user is not existing int the database
+     */
+    public int getUserMode(int id, String password) {
+        int isLibrarian = -1;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            String sqlQuery = "SELECT isLibrarian FROM User WHERE idUser = ? and password = ?";
+            stmt = connection.prepareStatement(sqlQuery);
+            stmt.setInt(1, id);
+            stmt.setString(2, password);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                isLibrarian = rs.getInt("isLibrarian");
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return isLibrarian;
+    }
+
 
     //  inserts User into database
-    public void insertUser(String[] values) {
+    public int insertUser(String[] values) {
         PreparedStatement stmt1 = null;
+        int generatedKey = -1;
         try {
             // Disable auto-commit mode
             connection.setAutoCommit(false);
 
-            String userSQL = "INSERT INTO User (firstname, lastname, isLibrarian) VALUES ( ?, ?, ?)";
-            stmt1 = connection.prepareStatement(userSQL);
+            String userSQL = "INSERT INTO User (firstname, lastname, isLibrarian, password) VALUES ( ?, ?, ?, ?)";
+            stmt1 = connection.prepareStatement(userSQL, Statement.RETURN_GENERATED_KEYS);
             stmt1.setString(1, values[0]);
             stmt1.setString(2, values[1]);
             if (values[2].equals("Administrator")) {
@@ -84,9 +124,14 @@ public class DBCon {
             } else {
                 stmt1.setInt(3, 0);
             }
+            stmt1.setString(4, values[3]);
             stmt1.executeUpdate();
             connection.commit();
 
+            ResultSet generatedKeys = stmt1.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                generatedKey = generatedKeys.getInt(1);
+            }
         } catch (SQLException se) {
             se.printStackTrace();
             // If there is an error, rollback the transaction
@@ -102,6 +147,7 @@ public class DBCon {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            return generatedKey;
         }
     }
 

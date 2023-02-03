@@ -2,6 +2,7 @@ package src.logingui;
 
 import javax.swing.*;
 
+import src.db.DBCon;
 import src.main.Initial;
 
 
@@ -31,17 +32,17 @@ public class Login extends JFrame {
 
         //  Login Button Login
         logInButton.addActionListener(e -> {
-            if (usernameTextfield.getText().equals("admin") && passwordTextfield.getText().equals("admin"))
-            {
+            DBCon dbCon = new DBCon();
+            int mode = dbCon.getUserMode(Integer.parseInt(usernameTextfield.getText()), passwordTextfield.getText());
+            if (mode == 1) {
                 setVisible(false);
                 dispose();
                 in.startLibrarianGUI();
-            } else if (usernameTextfield.getText().equals("user") && passwordTextfield.getText().equals("user")) {
+            } else if (mode == 0) {
                 setVisible(false);
                 dispose();
                 in.startUserGUI();
-            } else JOptionPane.showMessageDialog(null, "Incorrect Password");
-
+            } else JOptionPane.showMessageDialog(null, "Incorrect Password or Username!");
         });
 
     }

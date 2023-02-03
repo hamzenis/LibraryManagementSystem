@@ -7,6 +7,7 @@ import javax.swing.*;
 public class IssuedBooks extends JFrame{
     private JPanel windowPanel;
     private JButton backButton;
+    private JTable issuedBooksTable;
     Initial in = new Initial();
 
 
