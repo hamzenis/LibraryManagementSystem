@@ -16,10 +16,10 @@
         </constraints>
         <properties>
           <font name="Monaco" style="1"/>
-          <text value="Date of issue"/>
+          <text value="Username:"/>
         </properties>
       </component>
-      <component id="84f19" class="javax.swing.JTextField" binding="inputDate">
+      <component id="84f19" class="javax.swing.JTextField" binding="inputUsername">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -33,7 +33,7 @@
         </constraints>
         <properties>
           <font name="Monaco" style="1"/>
-          <text value="Book Id"/>
+          <text value="Book ID:"/>
         </properties>
       </component>
       <component id="2877d" class="javax.swing.JTextField" binding="inputBookID">
@@ -56,21 +56,13 @@
           <text value="Back"/>
         </properties>
       </component>
-      <component id="a764a" class="javax.swing.JTextField" binding="inputUserID">
-        <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
       <component id="be2d5" class="javax.swing.JLabel">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Monaco" style="1"/>
-          <text value="User ID"/>
+          <text value="Date of Issue"/>
         </properties>
       </component>
       <component id="c52ec" class="javax.swing.JButton" binding="saveButton" default-binding="true">
@@ -81,6 +73,16 @@
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/Save.png"/>
           <text value="Save"/>
+        </properties>
+      </component>
+      <component id="a764a" class="javax.swing.JTextField" binding="inputIssueDate">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <toolTipText value="Date format: 1998-10-28"/>
         </properties>
       </component>
     </children>

@@ -6,6 +6,7 @@ import src.db.DBCon;
 import src.main.Initial;
 
 
+
 public class Login extends JFrame {
 
     //  GUI Vars
@@ -19,19 +20,21 @@ public class Login extends JFrame {
 
     public Login()  {
 
-        /* Close program with "X" button
-        *  (auch in Initial möglich[siehe startLoginGUI],
-        *  jedoch besser wenn alles erbt von Klasse GUI[siehe Idea Improvements])
-        */
+        //  Close program with "X" button
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        /* Login GUI Actions */
 
         //  Close Button Login
         closeButton.addActionListener(e -> System.exit(0));
 
         //  Login Button Login
         logInButton.addActionListener(e -> {
+            loginAction();
+        });
+
+    }
+
+    private void loginAction() {
+        try {
             DBCon dbCon = new DBCon();
             int mode = dbCon.getUserMode(Integer.parseInt(usernameTextfield.getText()), passwordTextfield.getText());
             if (mode == 1) {
@@ -43,12 +46,13 @@ public class Login extends JFrame {
                 dispose();
                 in.startUserGUI();
             } else JOptionPane.showMessageDialog(null, "Incorrect Password or Username!");
-        });
-
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Username is only in numbers!");
+        }
     }
 
     /*  Getter */
-    public JPanel getLoginWindowPanel(){
+    public JPanel getLoginWindowPanel() {
         return windowPanel;
     }
 

@@ -29,7 +29,7 @@
         <properties>
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/ReturnedBooks.png"/>
-          <text value="View All Returned Books"/>
+          <text value="History of All Returned Books"/>
         </properties>
       </component>
       <grid id="17596" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -47,7 +47,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="4e7c3" class="javax.swing.JTable" binding="table1" default-binding="true">
+              <component id="4e7c3" class="javax.swing.JTable" binding="returnedBookTable">
                 <constraints/>
                 <properties/>
               </component>
