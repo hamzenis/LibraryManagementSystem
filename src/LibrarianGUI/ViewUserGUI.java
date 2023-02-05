@@ -28,17 +28,18 @@ public class ViewUserGUI extends JFrame {
     //  Creates Table User
     private void createTable() {
         DBCon dbCon = new DBCon();
-        String[] columnNames = {"Firstname", "Lastname", "Is Librarian"};
+        String[] columnNames = {"Username", "Firstname", "Lastname", "Is Librarian"};
         DefaultTableModel modelUserTable = new DefaultTableModel(columnNames, 0);
         try {
             Statement statement = dbCon.getConnection().createStatement();
             String sqlQuery = "Select * From User";
             ResultSet rs = statement.executeQuery(sqlQuery);
             while (rs.next()) {
+                String username = rs.getString("idUser");
                 String firstname = rs.getString("firstname");
                 String lastname = rs.getString("lastname");
                 String isLibrarian = (rs.getInt("isLibrarian") == 1) ? "Yes" : "No";
-                String[] data = {firstname, lastname, isLibrarian};
+                String[] data = {username, firstname, lastname, isLibrarian};
                 modelUserTable.addRow(data);
             }
             userTable.setModel(modelUserTable);

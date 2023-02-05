@@ -4,12 +4,6 @@ import src.LibrarianGUI.*;
 import src.logingui.*;
 import src.userGUI.*;
 
-import javax.swing.*;
-
-import java.awt.*;
-
-import static java.awt.Frame.MAXIMIZED_BOTH;
-
 public class Initial {
 
     /*  Code Comments:
@@ -20,46 +14,51 @@ public class Initial {
     *
     */
 
-
-
     /*  Start of Program */
     public void startLoginUI(){
         Login lo = new Login();
         lo.setContentPane(lo.getLoginWindowPanel());
         lo.setTitle("Welcome to LMS");
-        lo.setSize(250,200);
+        lo.setSize(350, 300);
         lo.setLocationRelativeTo(null);
         lo.setVisible(true);
     }
 
     /*  Side User UI */
 
-    public void startUserGUI(){
-        UserGUI ug = new UserGUI();
+    public void startUserGUI(int id) {
+        UserGUI ug = new UserGUI(id);
         ug.setContentPane(ug.getWindowPanel());
         ug.setTitle("Welcome $User to LMS - Library Management System");
+        //ug.setExtendedState(MAXIMIZED_BOTH);
+        ug.setSize(550, 700);
+        ug.setLocationRelativeTo(null);
         ug.setVisible(true);
-        ug.setExtendedState(MAXIMIZED_BOTH);
         //ug.pack();
         //ug.setLocationRelativeTo(null);
     }
 
-    public void startAvailableBooksGUI(){
-        AvailableBooks ab = new AvailableBooks();
+    public void startAvailableBooksGUI(int id) {
+        AvailableBooks ab = new AvailableBooks(id);
         ab.setContentPane(ab.getWindowPanel());
         ab.setTitle("Welcome $User to LMS - Library Management System");
+        //ab.setExtendedState(MAXIMIZED_BOTH);
+        ab.setSize(700, 700);
+        ab.setLocationRelativeTo(null);
         ab.setVisible(true);
-        ab.setExtendedState(MAXIMIZED_BOTH);
         //ab.pack();
         //ab.setLocationRelativeTo(null);
     }
 
-    public void startIssuedBookGUI(){
-        IssuedBooks ib = new IssuedBooks();
+    public void startIssuedBookGUI(int id) {
+        System.out.println("Initial->startIssuedBooks(): " + id);
+        IssuedBooks ib = new IssuedBooks(id);
         ib.setContentPane(ib.getWindowPanel());
         ib.setTitle("Welcome $User to LMS - Library Management System");
+        //ib.setExtendedState(MAXIMIZED_BOTH);
+        ib.setSize(700, 700);
+        ib.setLocationRelativeTo(null);
         ib.setVisible(true);
-        ib.setExtendedState(MAXIMIZED_BOTH);
         //ib.pack();
         //ib.setLocationRelativeTo(null);
     }
@@ -71,8 +70,10 @@ public class Initial {
         StartGUILibrarian li = new StartGUILibrarian();
         li.setContentPane(li.getWindowPanel());
         li.setTitle("LMS-Admin Panel");
+        //li.setExtendedState(MAXIMIZED_BOTH);
+        li.setSize(550,700);
+        li.setLocationRelativeTo(null);
         li.setVisible(true);
-        li.setExtendedState(MAXIMIZED_BOTH);
         //li.pack();
         //li.setLocationRelativeTo(null);
     }
@@ -80,9 +81,11 @@ public class Initial {
     public void startAddBookGUI(){
         AddBookGUI ab = new AddBookGUI();
         ab.setTitle("LMS-Admin Panel");
-        ab.setVisible(true);
         ab.setContentPane(ab.getWindowPanel());
-        ab.setExtendedState(MAXIMIZED_BOTH);
+        //ab.setExtendedState(MAXIMIZED_BOTH);
+        ab.setSize(700,700);
+        ab.setLocationRelativeTo(null);
+        ab.setVisible(true);
         //ab.pack();
         //ab.setLocationRelativeTo(null);
     }
@@ -91,8 +94,10 @@ public class Initial {
         AddUserGUI au = new AddUserGUI();
         au.setTitle("LMS-Admin Panel");
         au.setContentPane(au.getWindowPanel());
+        //au.setExtendedState(MAXIMIZED_BOTH);
+        au.setSize(700,700);
+        au.setLocationRelativeTo(null);
         au.setVisible(true);
-        au.setExtendedState(MAXIMIZED_BOTH);
         //au.pack();
         //au.setLocationRelativeTo(null);
     }
@@ -101,8 +106,10 @@ public class Initial {
         IssuebookUsersGUI ibu = new IssuebookUsersGUI();
         ibu.setTitle("LMS-Admin Panel");
         ibu.setContentPane(ibu.getWindowPanel());
+        //ibu.setExtendedState(MAXIMIZED_BOTH);
+        ibu.setSize(700,700);
+        ibu.setLocationRelativeTo(null);
         ibu.setVisible(true);
-        ibu.setExtendedState(MAXIMIZED_BOTH);
         //ibu.pack();
         //ibu.setLocationRelativeTo(null);
     }
@@ -111,8 +118,13 @@ public class Initial {
         EntriesGUI ne = new EntriesGUI();
         ne.setTitle("LMS-Admin Panel");
         ne.setContentPane(ne.getWindowPanel());
+        //ne.setExtendedState(MAXIMIZED_BOTH);
+        ne.setSize(700,700);
+        ne.setLocationRelativeTo(null);
         ne.setVisible(true);
-        ne.setExtendedState(MAXIMIZED_BOTH);
+        ne.setSize(700,700);
+        ne.setLocationRelativeTo(null);
+        ne.setVisible(true);
         //ne.pack();
         //ne.setLocationRelativeTo(null);
     }
@@ -120,9 +132,11 @@ public class Initial {
     public void startViewBookGUI(){
         ViewBookGUI vb = new ViewBookGUI();
         vb.setTitle("LMS-Admin Panel");
-        vb.setVisible(true);
         vb.setContentPane(vb.getWindowPanel());
-        vb.setExtendedState(MAXIMIZED_BOTH);
+        //vb.setExtendedState(MAXIMIZED_BOTH);
+        vb.setSize(700,700);
+        vb.setLocationRelativeTo(null);
+        vb.setVisible(true);
         //vb.pack();
         //vb.setLocationRelativeTo(null);
     }
@@ -131,8 +145,10 @@ public class Initial {
         ViewIssuedBookGUI vib = new ViewIssuedBookGUI();
         vib.setContentPane(vib.getWindowPanel());
         vib.setTitle("LMS-Admin Panel");
+        //vib.setExtendedState(MAXIMIZED_BOTH);
+        vib.setSize(700,700);
+        vib.setLocationRelativeTo(null);
         vib.setVisible(true);
-        vib.setExtendedState(MAXIMIZED_BOTH);
         //vib.pack();
         //vib.setLocationRelativeTo(null);
     }
@@ -141,8 +157,10 @@ public class Initial {
         ViewReturnedBookGUI rb = new ViewReturnedBookGUI();
         rb.setContentPane(rb.getWindowPanel());
         rb.setTitle("LMS-Admin Panel");
+        //rb.setExtendedState(MAXIMIZED_BOTH);
+        rb.setSize(700,700);
+        rb.setLocationRelativeTo(null);
         rb.setVisible(true);
-        rb.setExtendedState(MAXIMIZED_BOTH);
         //rb.pack();
         //rb.setLocationRelativeTo(null);
     }
@@ -151,10 +169,13 @@ public class Initial {
         ViewUserGUI vu = new ViewUserGUI();
         vu.setContentPane(vu.getWindowPanel());
         vu.setTitle("LMS-Admin Panel");
+        //vu.setExtendedState(MAXIMIZED_BOTH);
+        vu.setSize(700,700);
+        vu.setLocationRelativeTo(null);
         vu.setVisible(true);
-        vu.setExtendedState(MAXIMIZED_BOTH);
         //vu.pack();
         //vu.setLocationRelativeTo(null);
     }
+
 
 }

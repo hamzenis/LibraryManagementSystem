@@ -7,6 +7,9 @@ import javax.swing.*;
 public class EntriesGUI extends JFrame{
     private JPanel windowPanel;
     private JButton backButton;
+    private JTable table1;
+    private JButton returnButton;
+    private JTextField textField1;
     Initial in = new Initial();
 
     public EntriesGUI() {

@@ -29,20 +29,6 @@
           <text value="    View User  "/>
         </properties>
       </component>
-      <component id="3a2c2" class="javax.swing.JButton" binding="entriesButton" default-binding="true">
-        <constraints>
-          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="300" height="100"/>
-          </grid>
-        </constraints>
-        <properties>
-          <borderPainted value="false"/>
-          <contentAreaFilled value="false"/>
-          <font name="Monaco" style="1"/>
-          <icon value="src/LibrarianGUI/Entries.png"/>
-          <text value="    Entries    "/>
-        </properties>
-      </component>
       <component id="f72e6" class="javax.swing.JButton" binding="issueBookTOUserButton" default-binding="true">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
@@ -113,20 +99,6 @@
           <text value="  Issued Books"/>
         </properties>
       </component>
-      <component id="44dbf" class="javax.swing.JButton" binding="returnedBooksButton" default-binding="true">
-        <constraints>
-          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="300" height="100"/>
-          </grid>
-        </constraints>
-        <properties>
-          <borderPainted value="false"/>
-          <contentAreaFilled value="false"/>
-          <font name="Monaco" style="1"/>
-          <icon value="src/LibrarianGUI/ReturnedBooks.png"/>
-          <text value="Returned Books"/>
-        </properties>
-      </component>
       <component id="61f26" class="javax.swing.JButton" binding="viewBookButton" default-binding="true">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
@@ -139,6 +111,20 @@
           <font name="Monaco" style="1"/>
           <icon value="src/LibrarianGUI/AllBook.png"/>
           <text value="    View Book "/>
+        </properties>
+      </component>
+      <component id="44dbf" class="javax.swing.JButton" binding="returnedBooksButton" default-binding="true">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="300" height="100"/>
+          </grid>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <font name="Monaco" style="1"/>
+          <icon value="src/LibrarianGUI/ReturnedBooks.png"/>
+          <text value="Returned Books"/>
         </properties>
       </component>
     </children>
