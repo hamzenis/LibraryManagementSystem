@@ -4,11 +4,12 @@ import src.db.DBCon;
 import src.main.Initial;
 
 import javax.swing.*;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class IssuebookUsersGUI extends JFrame{
+public class IssuebookUsersGUI extends JFrame {
     private JTextField inputUsername;
     private JTextField inputBookID;
     private JTextField inputIssueDate;
@@ -28,13 +29,16 @@ public class IssuebookUsersGUI extends JFrame{
 
 
         saveButton.addActionListener(e -> {
-            if (checkQuantity(Integer.parseInt(inputBookID.getText())) > 0)
+            int bookID = Integer.parseInt(inputBookID.getText());
+            if (checkQuantity(bookID) > 0) {
                 issueBook();
-            else
+                decreaseQuantity(bookID);
+            } else
                 JOptionPane.showMessageDialog(null, "No Book left anymore!");
         });
     }
 
+    //  Returns quantity of the book
     private int checkQuantity(int idBook) {
         DBCon dbCon = new DBCon();
         ResultSet rs = null;
@@ -45,6 +49,27 @@ public class IssuebookUsersGUI extends JFrame{
             se.printStackTrace();
         }
         return -1;
+    }
+
+    //  Decreases the value of quantity in the book table
+    private void decreaseQuantity(int bookID) {
+        PreparedStatement stmt = null;
+        DBCon dbCon = new DBCon();
+        int rs;
+        try {
+            String sqlQuery = "UPDATE Book SET quantity = quantity - 1 WHERE idBook = ?;";
+            stmt = dbCon.getConnection().prepareStatement(sqlQuery);
+            stmt.setInt(1, bookID);
+            rs = stmt.executeUpdate();
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void issueBook() {

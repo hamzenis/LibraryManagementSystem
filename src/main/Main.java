@@ -3,9 +3,6 @@ package src.main;
 
 /*      TODO:
  *  ------ Implementing ------
- *  - Return a Book into database book table with EntriesGUI, a table to view returned Books
- *  - IssuedBooks userGUI Table
- *  - Add Return method into IssuedBooks GUI
  *  ------ Testing -----
  *  - SQL Code generate DB with standard user and Genres
  *  - ReturnedBooks GUI table testing

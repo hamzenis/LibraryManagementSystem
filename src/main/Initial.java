@@ -4,12 +4,6 @@ import src.LibrarianGUI.*;
 import src.logingui.*;
 import src.userGUI.*;
 
-import javax.swing.*;
-
-import java.awt.*;
-
-import static java.awt.Frame.MAXIMIZED_BOTH;
-
 public class Initial {
 
     /*  Code Comments:
@@ -20,50 +14,49 @@ public class Initial {
     *
     */
 
-
-
     /*  Start of Program */
     public void startLoginUI(){
         Login lo = new Login();
         lo.setContentPane(lo.getLoginWindowPanel());
         lo.setTitle("Welcome to LMS");
-        lo.setSize(350,300);
+        lo.setSize(350, 300);
         lo.setLocationRelativeTo(null);
         lo.setVisible(true);
     }
 
     /*  Side User UI */
 
-    public void startUserGUI(){
-        UserGUI ug = new UserGUI();
+    public void startUserGUI(int id) {
+        UserGUI ug = new UserGUI(id);
         ug.setContentPane(ug.getWindowPanel());
         ug.setTitle("Welcome $User to LMS - Library Management System");
         //ug.setExtendedState(MAXIMIZED_BOTH);
-        ug.setSize(550,700);
+        ug.setSize(550, 700);
         ug.setLocationRelativeTo(null);
         ug.setVisible(true);
         //ug.pack();
         //ug.setLocationRelativeTo(null);
     }
 
-    public void startAvailableBooksGUI(){
-        AvailableBooks ab = new AvailableBooks();
+    public void startAvailableBooksGUI(int id) {
+        AvailableBooks ab = new AvailableBooks(id);
         ab.setContentPane(ab.getWindowPanel());
         ab.setTitle("Welcome $User to LMS - Library Management System");
         //ab.setExtendedState(MAXIMIZED_BOTH);
-        ab.setSize(700,700);
+        ab.setSize(700, 700);
         ab.setLocationRelativeTo(null);
         ab.setVisible(true);
         //ab.pack();
         //ab.setLocationRelativeTo(null);
     }
 
-    public void startIssuedBookGUI(){
-        IssuedBooks ib = new IssuedBooks();
+    public void startIssuedBookGUI(int id) {
+        System.out.println("Initial->startIssuedBooks(): " + id);
+        IssuedBooks ib = new IssuedBooks(id);
         ib.setContentPane(ib.getWindowPanel());
         ib.setTitle("Welcome $User to LMS - Library Management System");
         //ib.setExtendedState(MAXIMIZED_BOTH);
-        ib.setSize(700,700);
+        ib.setSize(700, 700);
         ib.setLocationRelativeTo(null);
         ib.setVisible(true);
         //ib.pack();
@@ -88,7 +81,6 @@ public class Initial {
     public void startAddBookGUI(){
         AddBookGUI ab = new AddBookGUI();
         ab.setTitle("LMS-Admin Panel");
-
         ab.setContentPane(ab.getWindowPanel());
         //ab.setExtendedState(MAXIMIZED_BOTH);
         ab.setSize(700,700);
@@ -184,5 +176,6 @@ public class Initial {
         //vu.pack();
         //vu.setLocationRelativeTo(null);
     }
+
 
 }

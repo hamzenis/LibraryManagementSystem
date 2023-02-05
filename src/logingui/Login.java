@@ -44,7 +44,8 @@ public class Login extends JFrame {
             } else if (mode == 0) {
                 setVisible(false);
                 dispose();
-                in.startUserGUI();
+                System.out.println("Login: " + Integer.parseInt(usernameTextfield.getText()));
+                in.startUserGUI(Integer.parseInt(usernameTextfield.getText()));
             } else JOptionPane.showMessageDialog(null, "Incorrect Password or Username!");
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Username is only in numbers!");

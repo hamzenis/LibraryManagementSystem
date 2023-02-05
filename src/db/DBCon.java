@@ -345,24 +345,24 @@ public class DBCon {
     }
 
     public DefaultTableModel createTableReturnedBooks() {
-        String[] columnNames = {"Renter", "Book Title", "Date of Issue", "Date of Return"};
+        String[] columnNames = {"ID", "Renter", "Book Title", "Date of Issue", "Date of Return"};
         DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
         Statement stmt1 = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT User.firstname, User.lastname, Book.bookTitle, Returned.dateOfBorrow, Returned.dateOfReturn "
+            String sql = "SELECT Returned.idReturned, User.firstname, User.lastname, Book.bookTitle, Returned.dateOfBorrow, Returned.dateOfReturn "
                     + "FROM Returned "
                     + "JOIN User ON User.idUser = Returned.User_idUser "
                     + "JOIN Book ON Book.idBook = Returned.Book_idBook;";
             stmt1 = connection.createStatement();
             rs = stmt1.executeQuery(sql);
             while (rs.next()) {
-                String idBorrow = rs.getString("idReturned");
+                String idReturned = rs.getString("idReturned");
                 String renter = rs.getString("firstname") + " " + rs.getString("lastname");
                 String title = rs.getString("bookTitle");
                 String dateBorrow = rs.getDate("dateOfBorrow").toString();
                 String dateReturned = rs.getDate("dateOfReturn").toString();
-                String[] values = {idBorrow, renter, title, dateBorrow, dateReturned};
+                String[] values = {idReturned, renter, title, dateBorrow, dateReturned};
                 modelTable.addRow(values);
             }
         } catch (SQLException se) {
@@ -379,6 +379,42 @@ public class DBCon {
         }
 
 
+    }
+
+    public DefaultTableModel createTableIssuedBooksUser(int userId) {
+        System.out.println("createTable(): " + userId);
+        String[] columnNames = {"ID", "Renter", "Book Title", "Date of Issue"};
+        DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
+        Statement stmt1 = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT Borrow.idBorrow, User.firstname, User.lastname, Book.bookTitle, Borrow.dateOfBorrow "
+                    + "FROM Borrow "
+                    + "JOIN User ON User.idUser = Borrow.User_idUser "
+                    + "JOIN Book ON Book.idBook = Borrow.Book_idBook "
+                    + "WHERE User.idUser = " + userId + ";";
+            stmt1 = connection.createStatement();
+            rs = stmt1.executeQuery(sql);
+            while (rs.next()) {
+                String idBorrow = rs.getString("idBorrow");
+                String renter = rs.getString("firstname") + " " + rs.getString("lastname");
+                String title = rs.getString("bookTitle");
+                String date = rs.getDate("dateOfBorrow").toString();
+                String[] values = {idBorrow, renter, title, date};
+                modelTable.addRow(values);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } finally {
+            try {
+                if (stmt1 != null) stmt1.close();
+                if (rs != null) rs.close();
+                if (connection != null) connection.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+            return modelTable;
+        }
     }
 
     /*
