@@ -6,14 +6,6 @@ import src.userGUI.*;
 
 public class Initial {
 
-    /*  Code Comments:
-    *   - setSize(x,y) for perfered size, but pack() for minimum size
-    *      - pack() ausprobiert in then GUIs: userGUI, librarianGUI, addBookGUI [setExtendedState() auskommentieren]
-    *
-    *   - setLocationRelativeTo(null) sets Location of Window to the center of the screen
-    *
-    */
-
     /*  Start of Program */
     public void startLoginUI(){
         Login lo = new Login();
@@ -26,10 +18,10 @@ public class Initial {
 
     /*  Side User UI */
 
-    public void startUserGUI(int id) {
-        UserGUI ug = new UserGUI(id);
+    public void startUserGUI(int id, String firstname) {
+        UserGUI ug = new UserGUI(id, firstname);
         ug.setContentPane(ug.getWindowPanel());
-        ug.setTitle("Welcome $User to LMS - Library Management System");
+        ug.setTitle("Welcome " + firstname + " to LMS - Library Management System");
         //ug.setExtendedState(MAXIMIZED_BOTH);
         ug.setSize(550, 700);
         ug.setLocationRelativeTo(null);
@@ -38,10 +30,10 @@ public class Initial {
         //ug.setLocationRelativeTo(null);
     }
 
-    public void startAvailableBooksGUI(int id) {
-        AvailableBooks ab = new AvailableBooks(id);
+    public void startAvailableBooksGUI(int id, String firstname) {
+        AvailableBooks ab = new AvailableBooks(id, firstname);
         ab.setContentPane(ab.getWindowPanel());
-        ab.setTitle("Welcome $User to LMS - Library Management System");
+        ab.setTitle("Welcome " + firstname + " to LMS - Library Management System");
         //ab.setExtendedState(MAXIMIZED_BOTH);
         ab.setSize(700, 700);
         ab.setLocationRelativeTo(null);
@@ -50,11 +42,10 @@ public class Initial {
         //ab.setLocationRelativeTo(null);
     }
 
-    public void startIssuedBookGUI(int id) {
-        System.out.println("Initial->startIssuedBooks(): " + id);
-        IssuedBooks ib = new IssuedBooks(id);
+    public void startIssuedBookGUI(int id, String firstname) {
+        IssuedBooks ib = new IssuedBooks(id, firstname);
         ib.setContentPane(ib.getWindowPanel());
-        ib.setTitle("Welcome $User to LMS - Library Management System");
+        ib.setTitle("Welcome " + firstname + " to LMS - Library Management System");
         //ib.setExtendedState(MAXIMIZED_BOTH);
         ib.setSize(700, 700);
         ib.setLocationRelativeTo(null);
@@ -112,21 +103,6 @@ public class Initial {
         ibu.setVisible(true);
         //ibu.pack();
         //ibu.setLocationRelativeTo(null);
-    }
-
-    public void startEntriesGUI(){
-        EntriesGUI ne = new EntriesGUI();
-        ne.setTitle("LMS-Admin Panel");
-        ne.setContentPane(ne.getWindowPanel());
-        //ne.setExtendedState(MAXIMIZED_BOTH);
-        ne.setSize(700,700);
-        ne.setLocationRelativeTo(null);
-        ne.setVisible(true);
-        ne.setSize(700,700);
-        ne.setLocationRelativeTo(null);
-        ne.setVisible(true);
-        //ne.pack();
-        //ne.setLocationRelativeTo(null);
     }
 
     public void startViewBookGUI(){

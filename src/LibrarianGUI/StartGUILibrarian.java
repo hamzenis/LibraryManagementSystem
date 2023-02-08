@@ -3,7 +3,6 @@ package src.LibrarianGUI;
 import src.main.Initial;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class StartGUILibrarian extends JFrame {
     private JPanel windowPanel;
@@ -12,8 +11,7 @@ public class StartGUILibrarian extends JFrame {
     private JButton viewUserButton;
     private JButton viewBookButton;
     private JButton addUserButton;
-    private JButton entriesButton;
-    private JButton LogOutButton;
+    private JButton logOutButton;
     private JButton issuedBooksButton;
     private JButton returnedBooksButton;
     Initial in = new Initial();
@@ -33,13 +31,7 @@ public class StartGUILibrarian extends JFrame {
             in.startIssueBookUsersGUI();
         });
 
-        entriesButton.addActionListener(e -> {
-            setVisible(false);
-            dispose();
-            in.startEntriesGUI();
-        });
-
-        LogOutButton.addActionListener(e -> {
+        logOutButton.addActionListener(e -> {
             setVisible(false);
             dispose();
             in.startLoginUI();
@@ -76,7 +68,7 @@ public class StartGUILibrarian extends JFrame {
         });
     }
 
-        public JPanel getWindowPanel() {
-            return windowPanel;
-        }
+    public JPanel getWindowPanel() {
+        return windowPanel;
+    }
 }

@@ -237,7 +237,7 @@ public class DBCon {
 
     //  Searches in the database for the inputted author or book and returns a DefaultTableModel
     public DefaultTableModel searchBookAuthor(String searchTerm) {
-        String[] columnNames = {"Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
+        String[] columnNames = {"ID", "Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
         DefaultTableModel modelBookTable = new DefaultTableModel(columnNames, 0);
         Statement stmt = null;
         ResultSet rsBook = null;
@@ -252,12 +252,13 @@ public class DBCon {
                     + "%'";
             rsBook = stmt.executeQuery(sqlQuery);
             while (rsBook.next()) {
+                String idBook = rsBook.getString("idBook");
                 String bookTitle = rsBook.getString("bookTitle");
                 String pubYear = rsBook.getString("pubYear");
                 String genre = getGenre(rsBook.getInt("Category_idCategory"));
                 String quantity = rsBook.getString("quantity");
                 String author = rsBook.getString("firstname") + " " + rsBook.getString("lastname");
-                String[] data = {bookTitle, pubYear, genre, quantity, author};
+                String[] data = {idBook, bookTitle, pubYear, genre, quantity, author};
                 modelBookTable.addRow(data);
             }
         } catch (SQLException se) {
@@ -316,10 +317,10 @@ public class DBCon {
         Statement stmt1 = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT Borrow.idBorrow, User.firstname, User.lastname, Book.bookTitle, Borrow.dateOfBorrow "
+            String sql = "SELECT idBorrow, User.firstname, User.lastname, Book.bookTitle, Borrow.dateOfBorrow "
                     + "FROM Borrow "
                     + "JOIN User ON User.idUser = Borrow.User_idUser "
-                    + "JOIN Book ON Book.idBook = Borrow.Book_idBook;";
+                    + "JOIN Book ON Book.idBook = Borrow.Book_idBook ORDER BY idBorrow;";
             stmt1 = connection.createStatement();
             rs = stmt1.executeQuery(sql);
             while (rs.next()) {
@@ -350,10 +351,10 @@ public class DBCon {
         Statement stmt1 = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT Returned.idReturned, User.firstname, User.lastname, Book.bookTitle, Returned.dateOfBorrow, Returned.dateOfReturn "
+            String sql = "SELECT idReturned, User.firstname, User.lastname, Book.bookTitle, Returned.dateOfBorrow, Returned.dateOfReturn "
                     + "FROM Returned "
                     + "JOIN User ON User.idUser = Returned.User_idUser "
-                    + "JOIN Book ON Book.idBook = Returned.Book_idBook;";
+                    + "JOIN Book ON Book.idBook = Returned.Book_idBook ORDER BY idReturned DESC;";
             stmt1 = connection.createStatement();
             rs = stmt1.executeQuery(sql);
             while (rs.next()) {
@@ -382,7 +383,6 @@ public class DBCon {
     }
 
     public DefaultTableModel createTableIssuedBooksUser(int userId) {
-        System.out.println("createTable(): " + userId);
         String[] columnNames = {"ID", "Renter", "Book Title", "Date of Issue"};
         DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
         Statement stmt1 = null;

@@ -12,13 +12,13 @@ public class UserGUI extends JFrame{
     Initial in = new Initial();
 
 
-    public UserGUI(int id) {
+    public UserGUI(int id, String firstname) {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         issuedBooksButton.addActionListener(e -> {
             setVisible(false);
             dispose();
-            in.startIssuedBookGUI(id);
+            in.startIssuedBookGUI(id, firstname);
         });
 
         logOutButton.addActionListener(e -> {
@@ -30,7 +30,7 @@ public class UserGUI extends JFrame{
         availableBooksButton.addActionListener(e -> {
             setVisible(false);
             dispose();
-            in.startAvailableBooksGUI(id);
+            in.startAvailableBooksGUI(id, firstname);
         });
     }
 
