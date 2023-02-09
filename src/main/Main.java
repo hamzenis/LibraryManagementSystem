@@ -4,8 +4,6 @@ package src.main;
 /*      TODO:
  *  ------ Implementing ------
  *  - SQL Code generate DB with standard user and Genres
- *  - Bugfix in ViewIssuedBooks in returnButton
- *  - Default for Issue Book Date
  * *  ------ Testing -----
  *
  *      Backlog (later TODO):

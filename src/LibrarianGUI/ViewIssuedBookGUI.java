@@ -30,7 +30,6 @@ public class ViewIssuedBookGUI extends JFrame{
 
         returnButton.addActionListener(e -> {
             returnBook(Integer.parseInt(returnTextfield.getText()));
-            JOptionPane.showMessageDialog(null, "Book returned!");
             returnTextfield.setText("");
             dbCon.createConnection();
             issuedBooksTable.setModel(dbCon.createTableIssuedBooks());
@@ -83,6 +82,8 @@ public class ViewIssuedBookGUI extends JFrame{
             stmt4 = dbCon.getConnection().prepareStatement(sqlQuery4);
             stmt4.setInt(1, book_idBook);
             rs4 = stmt4.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Book returned!");
 
         } catch (SQLException se) {
             se.printStackTrace();

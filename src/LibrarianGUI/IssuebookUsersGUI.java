@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 
 public class IssuebookUsersGUI extends JFrame {
     private JTextField inputUsername;
@@ -20,6 +21,9 @@ public class IssuebookUsersGUI extends JFrame {
 
     public IssuebookUsersGUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        //  Set today's date as an default Value
+        inputIssueDate.setText(new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()));
 
         backButton.addActionListener(e -> {
             setVisible(false);
