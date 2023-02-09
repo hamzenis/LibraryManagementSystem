@@ -52,7 +52,9 @@
             <preferred-size width="200" height="40"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <toolTipText value="Enter ID to return"/>
+        </properties>
       </component>
       <component id="c2e6e" class="javax.swing.JButton" binding="backButton" default-binding="true">
         <constraints>

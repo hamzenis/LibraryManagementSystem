@@ -15,7 +15,7 @@ public class AvailableBooks extends JFrame {
 
 
 
-    public AvailableBooks(int idUser) {
+    public AvailableBooks(int idUser, String firstname) {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         DBCon dbCon = new DBCon();
         bookTable.setModel(dbCon.createTableBooks());
@@ -23,7 +23,7 @@ public class AvailableBooks extends JFrame {
         backButton.addActionListener(e -> {
             setVisible(false);
             dispose();
-            in.startUserGUI(idUser);
+            in.startUserGUI(idUser, firstname);
         });
 
         searchButton.addActionListener(e -> {
