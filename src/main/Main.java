@@ -4,6 +4,7 @@ package src.main;
 /*      TODO:
  *  ------ Implementing ------
  *  - SQL Code generate DB with standard user and Genres
+ *  - JavaDoc!! DBCon finished,
  * *  ------ Testing -----
  *
  *      Backlog (later TODO):

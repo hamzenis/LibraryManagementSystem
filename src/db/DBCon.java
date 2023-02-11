@@ -3,22 +3,26 @@ package src.db;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 
+/**
+ * Database Connection Class with various methods to get data in form of tables and insert data into the database.
+ */
 public class DBCon {
 
     //  Vars
     Connection connection = null;
 
-    //  Constructor with connection executed with creation of an object
+    /**
+     * Constructor with connection executed with creation of an object
+     */
     public DBCon() {
         createConnection();
     }
 
 
-    /*
-     * Don't have to be executed the first time, because it's executed in the constructor.
+    /**
+     * Creates a connection to the database
      * Will be closed after every function from DBCon.
      * You have to use createConnection(), if you want to execute more than one methode use for an object.
-     *
      */
     public void createConnection() {
 
@@ -31,12 +35,15 @@ public class DBCon {
     }
 
 
-
     /*
-     *       SQL DML methods
+     *  SQL DML methods
      */
 
-    //  Give a SQL Query (DML) to the function, and it will be executed.
+    /**
+     * Executes a general insert, delete or change into the database
+     *
+     * @param inputSQL a string with a sql query
+     */
     public void sqlExecute(String inputSQL) {
         Statement statement = null;
         try {
@@ -55,7 +62,12 @@ public class DBCon {
         }
     }
 
-    //  Executes a SQL query and returns a ResultSet
+    /**
+     * Executes a SQL query and returns a ResultSet
+     *
+     * @param sql a string with the sql query
+     * @return ResultSet returns a ResultSet with values
+     */
     public ResultSet executeQuery(String sql) {
         Statement stmt = null;
         try {
@@ -68,11 +80,14 @@ public class DBCon {
     }
 
 
-    /*
+    /**
      *   Gets Login credentials and returns if admin gui or user gui as an int:
      *  - 1 if Admin
      *  - 0 if User
      *  - -1 if the user is not existing int the database
+     * @param id the id of the user from the mysql database
+     * @param password the input of text flied entered value
+     * @return returns the mode for the gui as an int
      */
     public int getUserMode(int id, String password) {
         int isLibrarian = -1;
@@ -102,7 +117,12 @@ public class DBCon {
     }
 
 
-    //  inserts User into database
+    /**
+     * Inserts User into database.
+     *
+     * @param values a string array with the in the input fields entered values
+     * @return int returns the primary keys value from the mysql database
+     */
     public int insertUser(String[] values) {
         PreparedStatement stmt1 = null;
         int generatedKey = -1;
@@ -146,7 +166,12 @@ public class DBCon {
         }
     }
 
-    //  inserts Book into database with author and genre
+
+    /**
+     * Inserts Book into database with author and genre.
+     *
+     * @param values a string array with the in the input fields entered values
+     */
     public void insertBook(String[] values) {
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
@@ -213,12 +238,18 @@ public class DBCon {
         }
     }
 
-
     /*
      *       Table Methods
      */
 
-    //  (General) Returns a table created from ResultSet and column names
+
+    /**
+     * Returns a genereal table created from ResultSet and column names
+     *
+     * @param rs
+     * @param columns
+     * @return
+     */
     public DefaultTableModel createTableFromResultSet(ResultSet rs, String[] columns) {
         DefaultTableModel model = new DefaultTableModel(columns, 0);
         try {
@@ -235,7 +266,12 @@ public class DBCon {
         return model;
     }
 
-    //  Searches in the database for the inputted author or book and returns a DefaultTableModel
+    /**
+     * Searches in the database for the inputted author or book and returns a DefaultTableModel
+     *
+     * @param searchTerm the search term in the textfield
+     * @return a DefaultTableModel with the data in the rows
+     */
     public DefaultTableModel searchBookAuthor(String searchTerm) {
         String[] columnNames = {"ID", "Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
         DefaultTableModel modelBookTable = new DefaultTableModel(columnNames, 0);
@@ -275,7 +311,11 @@ public class DBCon {
         }
     }
 
-    //  Creates table books with author and genre
+    /**
+     * Creates table books with author and genre
+     *
+     * @return a DefaultTableModel with the data in the rows
+     */
     public DefaultTableModel createTableBooks() {
         String[] columnNames = {"ID", "Book Title", "Publishing Year", "Genre", "Quantity", "Author"};
         DefaultTableModel modelBookTable = new DefaultTableModel(columnNames, 0);
@@ -311,6 +351,11 @@ public class DBCon {
         }
     }
 
+    /**
+     * Creates a table for the issued books from a mysql database
+     *
+     * @return a DefaultTableModel with the data in the rows
+     */
     public DefaultTableModel createTableIssuedBooks() {
         String[] columnNames = {"ID", "Renter", "Book Title", "Date of Issue"};
         DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
@@ -345,6 +390,11 @@ public class DBCon {
         }
     }
 
+    /**
+     * Creates a table for the returned books from a mysql database
+     *
+     * @return a DefaultTableModel with the data in the rows
+     */
     public DefaultTableModel createTableReturnedBooks() {
         String[] columnNames = {"ID", "Renter", "Book Title", "Date of Issue", "Date of Return"};
         DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
@@ -382,6 +432,12 @@ public class DBCon {
 
     }
 
+    /**
+     * Creates a table for the issued books from a mysql database
+     *
+     * @param userId ID from user in the mysql database
+     * @return a DefaultTableModel with the data in the rows
+     */
     public DefaultTableModel createTableIssuedBooksUser(int userId) {
         String[] columnNames = {"ID", "Renter", "Book Title", "Date of Issue"};
         DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
@@ -421,7 +477,12 @@ public class DBCon {
      *       Getter methods
      */
 
-    //  Method to get the right genre as a String
+    /**
+     * Method to get the right genre as a String
+     *
+     * @param idGenre ID of the genre in the mysql database
+     * @return Genre as a string
+     */
     private String getGenre(int idGenre) {
         String sqlInput = "Select genre FROM Category WHERE idCategory = " + idGenre + ";";
         String genre = null;
@@ -445,6 +506,11 @@ public class DBCon {
         }
     }
 
+    /**
+     * Gets database connection
+     *
+     * @return A Connection for the database
+     */
     //  Connection getter
     public Connection getConnection() {
         return this.connection;
