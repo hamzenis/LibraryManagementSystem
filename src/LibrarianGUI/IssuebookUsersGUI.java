@@ -42,7 +42,12 @@ public class IssuebookUsersGUI extends JFrame {
         });
     }
 
-    //  Returns quantity of the book
+    /**
+     * Gets and returns quantity of the book
+     *
+     * @param idBook id of book
+     * @return quantity of books
+     */
     private int checkQuantity(int idBook) {
         DBCon dbCon = new DBCon();
         ResultSet rs = null;
@@ -55,7 +60,11 @@ public class IssuebookUsersGUI extends JFrame {
         return -1;
     }
 
-    //  Decreases the value of quantity in the book table
+    /**
+     * Decreases the value of quantity in the book table
+     *
+     * @param bookID id of book
+     */
     private void decreaseQuantity(int bookID) {
         PreparedStatement stmt = null;
         DBCon dbCon = new DBCon();
@@ -76,6 +85,9 @@ public class IssuebookUsersGUI extends JFrame {
         }
     }
 
+    /**
+     * issuesBook to the user from the inputted data via text fields.
+     */
     private void issueBook() {
         Statement statement = null;
         try {
@@ -107,6 +119,9 @@ public class IssuebookUsersGUI extends JFrame {
         }
     }
 
+    /**
+     * Clears Input
+     */
     private void clearInput() {
         inputUsername.setText("");
         inputBookID.setText("");

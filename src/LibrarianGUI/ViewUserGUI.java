@@ -25,7 +25,9 @@ public class ViewUserGUI extends JFrame {
         });
     }
 
-    //  Creates Table User
+    /**
+     * Creates Table User
+     */
     private void createTable() {
         DBCon dbCon = new DBCon();
         String[] columnNames = {"Username", "Firstname", "Lastname", "Is Librarian"};
@@ -47,7 +49,6 @@ public class ViewUserGUI extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public JPanel getWindowPanel() {

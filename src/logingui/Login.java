@@ -34,6 +34,9 @@ public class Login extends JFrame {
 
     }
 
+    /**
+     * Opens the admin Gui if the user is an admin otherwise the user gui.
+     */
     private void loginAction() {
         try {
             DBCon dbCon = new DBCon();

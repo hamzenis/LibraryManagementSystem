@@ -36,8 +36,12 @@ public class ViewIssuedBookGUI extends JFrame{
         });
     }
 
-    //  issued book will be deleted from table "Borrow" and will be inserted into table "Returned" for the History
-    //  In table "Book" quantity will be increased by 1
+    /**
+     * Issued book will be deleted from table "Borrow" and will be inserted into table "Returned" for the History
+     * In table "Book" quantity will be increased by 1
+     *
+     * @param borrowID id of borrow
+     */
     private void returnBook(int borrowID) {
         PreparedStatement stmt1 = null;
         PreparedStatement stmt2 = null;
