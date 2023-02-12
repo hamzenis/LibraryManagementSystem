@@ -28,7 +28,7 @@ public class DBCon {
 
         try {
             //  Insert username(normally root) and password(set at MySQL installation) in Connection
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Library_Management_System", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Library_Management_System", "lms_user", "password");
         } catch (Exception e) {
             e.printStackTrace();
         }
